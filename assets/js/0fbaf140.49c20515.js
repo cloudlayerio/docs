@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[266],{6416:function(s){s.exports=JSON.parse('{"pluginId":"docs-sdks","version":"current","label":"Next","banner":null,"badge":false,"className":"docs-version-current","isLast":true,"docsSidebars":{"tutorialSidebar":[{"type":"link","label":"SDKs","href":"https://github.com/cloudlayerio/docs/sdks/"}]}}')}}]);
