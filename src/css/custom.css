@@ -1,0 +1,104 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+@font-face {
+  font-family: "Inter";
+  src: url("/static/font/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/static/font/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/static/font/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+:root {
+  --ifm-color-primary: #7344D0;
+  --ifm-color-primary-dark: #4E279C;
+  --ifm-color-primary-darker: #412082;
+  --ifm-color-primary-darkest: #2B1555;
+  --ifm-color-primary-light: #896BC6;
+  --ifm-color-primary-lighter: #BCAADE;
+  --ifm-color-primary-lightest: #EEEAF7;
+  --ifm-navbar-link-color: #fff;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Inter';
+  --ifm-navbar-link-hover-color: #D1C2F0;
+  --ifm-navbar-background-color: #5E2FBD;
+  --ifm-navbar-shadow: none;
+}
+
+
+.navbar__logo {
+  margin-right: 1rem;
+}
+
+.navbar__title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: -6px;
+  margin-right: 4rem;
+}
+
+.navbar__items .navbar__item, .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-styles-module {
+  margin-top: -6px;
+}
+
+.hero {
+  --ifm-hero-background-color: #5E2FBD;
+}
+
+.logo {
+  margin-right: 2rem;
+}
+/* 
+.navbar {
+  --ifm-nav
+} */
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #A486E1;
+  --ifm-color-primary-dark: #8B65D8;
+  --ifm-font-color-base-inverse: #fff;
+  --ifm-background-color: #0E071D;
+  --ifm-navbar-background-color: #381C6F;
+
+  /* any other colors you wish to overwrite */
+}
+
+html[data-theme='dark'] .hero {
+  --ifm-hero-background-color: #381C6F;
+}
+
+html .footer {
+  --ifm-footer-background-color: #211142;
+  
+}
+
+
