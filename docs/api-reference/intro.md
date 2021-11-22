@@ -63,7 +63,7 @@ If everything worked correctly, you should get the following JSON response back.
 
 *** This feature is coming in the future. ***
 
-## Asynchrounous & Synchronous
+## Async & Sync
 All calls made to the current API are synchronous by default. 
 
 *** Asynchronous calling and webhook support coming in the future. ***

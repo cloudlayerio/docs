@@ -1,0 +1,508 @@
+## Pdf Parameters
+
+### `timeout`
+
+Amount of time that Chrome is allowed to run. If exceeded, your job will terminate.
+
+`number`
+_`Default: 30000ms`_
+
+```javascript
+{ "timeout": 30000 }
+```
+
+### `delay`
+
+The amount of time in milliseconds to wait for the page to complete rendering before conversion.
+
+`number`
+_`Default: 0ms`_
+
+```javascript
+{ "delay": 1000 }
+```
+
+### `filename`
+
+If used with the `inline: false`, will set the `Content-Disposition` filename so that the downloaded file will assign to this value in the user's browser. For `inline: true`, it has no effect.
+
+`string`
+_`Default: ""`_
+
+```javascript
+{ "filename": "filename.pdf" }
+```
+
+### `inline`
+
+If set to true, the `Content-Disposition` gets set to `inline`. If set to false, it gets set to `attachment`. See [filename](#filename) property if you want to set the filename value for the attachment.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{ "inline": true }
+```
+
+### `waitForSelector`
+
+Allows for more complex wait behavior to control when the Chrome rendering engine decides when a page has finished before the conversion.
+
+#### `selector`
+
+The selector of an element to wait for before performing the conversion.
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{
+    "waitForSelector": {
+        "selector": "img"
+    }
+}
+```
+
+#### `options`
+
+The selector of an element to wait for before performing the conversion.
+
+#### `visible`
+
+Wait for the [selector](#selector) element to be present in the DOM and to be visible, i.e. to not have `display:none` or `visibility:hidden` CSS properties. Not to be combined with the [hidden](#hidden) property.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{
+    "waitForSelector": {
+        "selector": "img",
+        "options": {
+            "visible": true
+        }
+    }
+}
+```
+
+#### `hidden`
+
+Wait for the [selector](#selector) element to be present in the DOM and to be hidden, i.e. to have `display: none` or `visibility: hidden` CSS properties. Not to be combined with the [visible](#visible) property.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{
+    "waitForSelector": {
+        "selector": "img",
+        "options": {
+            "hidden": true
+        }
+    }
+}
+```
+
+#### `timeout`
+
+Maximum amount of time to wait in milliseconds for the selector to meet the [visible](#visible) or [hidden](#hidden) criteria.
+
+`number`
+_`Default: 30000`_
+
+```javascript title="visible"
+{
+    "waitForSelector": {
+        "selector": "img",
+        "options": {
+            "visible": true,
+            "timeout": 30000
+        }
+    }
+}
+```
+
+```javascript title="hidden"
+{
+    "waitForSelector": {
+        "selector": "img",
+        "options": {
+            "hidden": true,
+            "timeout": 30000
+        }
+    }
+}
+```
+
+### `preferCSSPageSize`
+
+Give any CSS `@page` size declared in the page priority over what is declared in [width](#width) and [height](#height) or [format](#format) options.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{ "preferCSSPageSize": true }
+```
+
+### `scale`
+
+Scale of the webpage rendering. Must be between 0.1 and 2.
+
+`number`
+_`Default: 0`_
+
+```javascript
+{ "scale": 0.5 }
+```
+
+### `height`
+
+Paper height. Must be supported type of [units](#units) or number.
+
+`string|number`
+_`Default: <null>`_
+
+```javascript
+{ "height": 100 }
+```
+
+```javascript
+{ "height": "1.25in" }
+```
+
+### `width`
+
+Paper width. Must be supported type of [units](#units) or number.
+
+`string|number`
+_`Default: <null>`_
+
+```javascript
+{ "width": 100 }
+```
+
+```javascript
+{ "width": "1.25in" }
+```
+
+### `landscape`
+
+Paper orientation, false sets it to portrait and true to landscape.
+
+`boolean`
+_`Default: false_
+
+```javascript
+{ "landscape": true }
+```
+
+### `pageRanges`
+
+Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{ "pageRanges": "1-5" }
+```
+
+### `autoScroll`
+
+Will auto-scroll the page down to the very end. Helpful in forcing lazy-loaded content to load.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{ "autoScroll": true }
+```
+
+### `waitUntil`
+
+When to consider the navigation has been completed and begin the conversion.
+
+`string`
+_`Default: "networkidle2"`_
+
+#### Accepted Values
+
+- `load` - consider navigation to be finished when the `load` event is fired.
+- `domcontentloaded` - consider navigation to be finsihed when the `DOMContentLoaded` event is fired.
+- `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least `500` ms.
+- `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least `500' ms.
+
+```javascript
+{ "waitUntil": "load" }
+```
+
+### `format`
+
+Paper format, which takes priority over [width](#width) and [height](#height). Do not use with width and height. Use one or the other. Must be supported type of [formats](#formats).
+
+`string`
+_`Default: false`_
+
+```javascript
+{ "format": "letter" }
+```
+
+### `margin`
+
+Paper margins.
+
+```javascript
+{
+    "margin": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+    }
+}
+```
+
+#### `top` {#margin-top}
+
+Top paper margin, must be supported type of [units](#units).
+
+`string|number`
+_`Default: "0.4in"`_
+
+```javascript
+{
+    "margin": {
+        "top": 100
+    }
+}
+```
+
+#### `bottom` {#margin-bottom}
+
+Bottom paper margin, must be supported type of [units](#units).
+
+`string|number`
+_`Default: "0.39in"`_
+
+```javascript
+{
+    "margin": {
+        "bottom": 100
+    }
+}
+```
+
+#### `left` {#margin-left}
+
+Left paper margin, must be supported type of [units](#units).
+
+`string|number`
+_`Default: "0.4in"`_
+
+```javascript
+{
+    "margin": {
+        "left": 0
+    }
+}
+```
+
+#### `right` {#margin-right}
+
+Left paper margin, must be supported type of [units](#units).
+
+`string|number`
+_`Default: "0.39in"`_
+
+```javascript
+{
+    "margin": {
+        "right": 0
+    }
+}
+```
+
+### `printBackground`
+
+Print background graphics.
+
+`boolean`
+_`Default: false`_
+
+```javascript
+{ "printBackground": true }
+```
+
+### `headerTemplate`
+
+Template for the PDF header. There are two types of template styles: a basic HTML template and an HTML body extraction method.
+
+#### `selector` {#header-template-selector}
+
+Template string if using template method type, otherwise ignored.
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{ "selector": ".my-div" }
+```
+
+#### `method` {#header-template-method}
+
+`string`
+_`Default: "text"`_
+
+- `text` - Uses the default text template method.
+- `extract` - Extracts the header from the HTML body based on the selector, encodes it, and applies styles before adding it to the PDF Header.
+
+```javascript
+{ "method": "extract" }
+```
+
+#### `margin` {#header-template-margin}
+
+Margin that is applied to the header container. Must be supported type of [margin](#margin).
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{
+    "margin": {
+        "top": "100px",
+        "bottom": "100px"
+    }
+}
+```
+
+#### `style` {#header-template-style}
+
+CSS style that gets applied to the header container. Chrome does not support all CSS styles in the header, some values may be ignored.
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{
+    "style": {
+        "width": "100%",
+        "border": "1px soilid red"
+    }
+}
+```
+
+#### `imageStyle` {#header-template-imagestyle}
+
+CSS style that gets applied to the header image container. Chrome does not support all CSS styles in the header, some values may be ignored.
+
+`string`
+_`Default: <null>`_
+
+```javascript
+{
+    "imageStyle": {
+        "padding-bottom": "10px",
+        "height": "500px",
+        "max-width": "75%"
+    }
+}
+```
+
+#### Example - Extract Header Template
+
+```html title="Html"
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div class="page-header-bob" style="text-align: center">
+      <div id="header">
+        <span style="font-size: 20px; color: red">Header</span>
+      </div>
+    </div>
+    <h1>Page 1</h1>
+    <div style="height: 842px"></div>
+    <h1>Page 2</h1>
+  </body>
+</html>
+```
+
+```javascript title="Parameters"
+{
+    "html": "PCFET0NUWVBFIGh0bWw+CjxodG1sPgogIDxoZWFkPiA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8ZGl2IGNsYXNzPSJwYWdlLWhlYWRlci1ib2IiIHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXIiPgogICAgICA8ZGl2IGlkPSJoZWFkZXIiPgogICAgICAgIDxzcGFuIHN0eWxlPSJmb250LXNpemU6IDIwcHg7IGNvbG9yOiByZWQiPkhlYWRlcjwvc3Bhbj4KCiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgICA8aDE+UGFnZSAxPC9oMT4KICAgIDxkaXYgc3R5bGU9ImhlaWdodDogODQycHgiPjwvZGl2PgogICAgPGgxPlBhZ2UgMjwvaDE+CiAgPC9ib2R5Pgo8L2h0bWw+Cg=="
+    "margin": {
+		"top": "120px"
+	},
+	"headerTemplate": {
+		"method": "extract",
+		"selector": ".page-header-bob",
+		"style": {
+			"width": "100%",
+			"border": "1px solid red"
+		}
+    }
+}
+```
+
+In the above code snippet called `Parameters`, the HTML is a `base64` encoded string of the `Html` example above it. In this example, you can see how the div has a class named `page-header-bob`. This div is the header element extracted out of the body and moved into the header.
+
+A caveat of using headers with PDFs is that the header exists inside the margins on PDF files. So, in this example, a margin-top of 120px is applied to make room for the header element to live. Otherwise, it will be covered up and not visible. By default, when the Chrome rendering engine renders HTML that exists in a header, it uses a font size that is extremely small and not legible, so a font size of 20px gets set on the span inside the header to allow the text to be readable.
+
+### `footerTemplate`
+
+Template for the PDF header. See [headerTemplate](#headertemplate) for reference. Can be used identically to the headerTemplate, only difference is the property name.
+
+```javascript 
+{
+    "footerTemplate": "<...same as headerTemplate>"
+}
+```
+
+## Units
+
+For properties that accept string unit types, the following units are valid.
+
+_Note: If the property accepts a number it defaults to pixels._
+
+- `px` - pixel
+- `in` - inch
+- `cm` - centimeter
+- `mm` - millimeter
+
+```javascript title="px - pixel (number)"
+{ "width": 100 }
+```
+
+```javascript title="px - pixel"
+{ "width": "100px" }
+```
+
+```javascript title="in - inch"
+{ "width": "100in" }
+```
+
+```javascript title="cm - centimeter"
+{ "width": "100cm" }
+```
+
+```javascript title="mm - millimeter"
+{ "width": "100mm" }
+```
+
+## Formats
+
+The acceptable format options for PDF are valid.
+
+- `letter`: 8.5in x 11in
+- `legal`: 8.5in x 14in
+- `tabloid`: 11in x 17in
+- `ledger`: 17in x 11in
+- `a0`: 33.1in x 46.8in
+- `a1`: 23.4in x 33.11in
+- `a2`: 16.54in x 23.4in
+- `a3`: 11.7in x 16.54in
+- `a4`: 8.27in x 11.7in
+- `a5`: 5.83in x 8.27in
+- `a6`: 4.13in x 5.83in

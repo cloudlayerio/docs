@@ -1,0 +1,13 @@
+---
+sidebar_position: 3
+slug: /html-to-pdf
+title: Html to PDF
+---
+
+import PdfParams, { toc as PdfParamsTOC } from "./partials/_pdf-params.mdx";
+import HtmlToPdf, { toc as HtmlToPdfTOC } from "./partials/_html-to-pdf.mdx";
+
+<HtmlToPdf />
+<PdfParams />
+
+export const toc = [...HtmlToPdfTOC, ...PdfParamsTOC]

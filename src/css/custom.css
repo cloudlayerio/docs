@@ -41,6 +41,7 @@
   --ifm-navbar-link-hover-color: #D1C2F0;
   --ifm-navbar-background-color: #4E279C;
   --ifm-navbar-shadow: none;
+  --ifm-hr-border-width: 1px;
 }
 
 
@@ -88,6 +89,7 @@ html[data-theme='dark'] {
   --ifm-font-color-base-inverse: #fff;
   --ifm-background-color: #0E071D;
   --ifm-navbar-background-color: #381C6F;
+  --ifm-hr-border-color: #412082;
 
   /* any other colors you wish to overwrite */
 }
@@ -98,7 +100,11 @@ html[data-theme='dark'] .hero {
 
 html .footer {
   --ifm-footer-background-color: #211142;
-  
+}
+
+hr {
+  border-top-width: 1px;
+  border-bottom-width: 0px;
 }
 
 
