@@ -16,6 +16,7 @@ const config = {
   organizationName: 'cloudlayerio', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   trailingSlash: false,
+  
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -24,12 +25,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/cloudlayerio/docs/edit/main/',
           routeBasePath: '/',
           path: 'docs/api-reference'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+          
         },
       }),
       
@@ -56,6 +58,7 @@ const config = {
     ],
   ],
   themeConfig:
+
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
@@ -138,17 +141,21 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/cloudlayerio/docs',
               },
             ],
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} cloudlayer.io`,
       },
+      
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        defaultMode: 'dark'
+      }
     }),
 };
 
