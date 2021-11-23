@@ -1,4 +1,7 @@
 ## Url Parameters
+
+Parameters that exist on **URL** services.
+
 ### `url`
 
 Source URL to use for generating the content.
@@ -18,15 +21,16 @@ Set the Viewport of the page before navigation.
 
 ```json
 {
-    "viewPort": {
-        "width": 1024,
-        "height": 768,
-        "deviceScaleFactor": 2
-    }
+  "viewPort": {
+    "width": 1024,
+    "height": 768,
+    "deviceScaleFactor": 2
+  }
 }
 ```
 
 #### `width` {#viewport-width}
+
 Page width in pixels only.
 **Required**
 
@@ -35,13 +39,14 @@ _`Default: <null>`_
 
 ```json
 {
-    "viewPort": {
-        "width": 1024
-    }
+  "viewPort": {
+    "width": 1024
+  }
 }
 ```
 
 #### `height` {#viewport-height}
+
 Page height in pixels only.
 **Required**
 
@@ -50,26 +55,76 @@ _`Default: <null>`_
 
 ```json
 {
-    "viewPort": {
-        "height": 768
-    }
+  "viewPort": {
+    "height": 768
+  }
 }
 ```
 
 #### `deviceScaleFactor`
+
 Specify device scale factor (DPR). [Height](#viewport-height) and [Width](#viewport-width) are always required.
-**Required**
 
 `number`
 _`Default: 1`_
 
 ```json
 {
-    "viewPort": {
-        "width": 640,
-        "height": 480,
-        "deviceScaleFactor": 1
-    }
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "deviceScaleFactor": 1
+  }
 }
 ```
 
+#### `isMobile`
+
+Whether the `meta viewport` tag is taken into account. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "isMobile": true
+  }
+}
+```
+
+#### `hasTouch`
+
+Specifies if viewport supports touch events. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "hasTouch": true
+  }
+}
+```
+
+#### `isLandscape`
+
+Specifies if viewport is in landscape mode. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "isLandscape": true
+  }
+}
+```
