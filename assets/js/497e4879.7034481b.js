@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[839],{274:function(e){e.exports=JSON.parse('{"pluginId":"docs-examples","version":"current","label":"Next","banner":null,"badge":false,"className":"docs-version-current","isLast":true,"docsSidebars":{"tutorialSidebar":[{"type":"link","label":"Examples","href":"/docs/examples/"}]}}')}}]);
