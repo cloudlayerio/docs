@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Docs',
   tagline: 'Developer documentation, API Reference, SDKs and Examples',
-  url: 'https://cloudlayerio.github.io',
-  baseUrl: '/docs/',
+  url: 'https://docs.cloudlayer.io',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
