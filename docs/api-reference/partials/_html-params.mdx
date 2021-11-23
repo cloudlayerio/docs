@@ -1,0 +1,32 @@
+## Html Parameters
+
+Parameters that exist on **HTML** services.
+
+### `html`
+
+The base64 encoded HTML string of your HTML. Must be a base64 encoded string.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```html title="Raw HTML"
+<html>
+  <body>
+    <h1>Hello world!</h1>
+  </body>
+</html>
+```
+
+```json title="Base64 Encoded"
+{ "html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4=" }
+```
+
+:::tip
+If you are using [VSCode](https://code.visualstudio.com/) you can download the [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64) extension to help you encode/decode your HTML while you develop.
+:::
+
+:::info
+For more examples and more complex scenarios, check out the Html to [PDF Examples](examples/html-to-pdf) section.
+:::
