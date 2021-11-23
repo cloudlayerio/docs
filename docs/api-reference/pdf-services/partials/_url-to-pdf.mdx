@@ -1,0 +1,73 @@
+Convert any URL to a PDF using a publicly accessible webpage URL or one behind basic authentication or cookie authentication using our authentication mechanisms.
+
+## Endpoints
+
+### GET /url/pdf
+
+Supports simple requests with only two parameter options.
+
+- `url` (required)
+- `timeout` (optional)
+
+```html title="GET /url/pdf"
+https://api.cloudlayer.io/v1/url/pdf?url={url}&timeout={timeout}
+```
+
+### POST /url/pdf
+
+Supports all parameters being passed into request as JSON. All parameter types are supported.
+
+- [Url Parameters](#url-parameters)
+- [Base Parameters](#base-parameters)
+- [Pdf Parameters](#pdf-parameters)
+
+:::tip
+Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
+:::
+
+```html title="POST /url/pdf"
+https://api.cloudlayer.io/v1/url/pdf
+```
+
+```json title="JSON Payload"
+{
+    "url": "https://google.com",
+}
+```
+
+### Examples
+
+```json title="Viewport Example"
+{
+	"url": "https://google.com",
+	"viewPort": {
+		"width": 800,
+		"height": 400
+	}
+}
+```
+
+```shell title="cURL Example" 
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/pdf \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+	"url": "https://google.com"
+}' \
+--output "google.pdf"
+```
+
+```shell title="Wget Example"
+wget --method POST \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --body-data '{"url": "https://google.com"}' \
+  - https://api.cloudlayer.io/v1/url/pdf \
+  -O "google.pdf"
+```
+
+:::info
+For more examples, checkout the [Url to PDF Examples](url-to-pdf-examples/).
+:::
+

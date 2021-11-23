@@ -17,8 +17,8 @@ import UrlToPdf, { toc as UrlToPdfTOC } from "./partials/_url-to-pdf.mdx";
 <PdfParams />
 
 export const toc = [
+  ...UrlToPdfTOC,
   ...UrlParamsTOC,
   ...BaseParamsTOC,
-  ...UrlToPdfTOC,
   ...PdfParamsTOC,
 ];
