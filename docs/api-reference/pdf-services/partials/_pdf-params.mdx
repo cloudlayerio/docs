@@ -7,7 +7,7 @@ Amount of time that Chrome is allowed to run. If exceeded, your job will termina
 `number`
 _`Default: 30000ms`_
 
-```javascript
+```json
 { "timeout": 30000 }
 ```
 
@@ -18,7 +18,7 @@ The amount of time in milliseconds to wait for the page to complete rendering be
 `number`
 _`Default: 0ms`_
 
-```javascript
+```json
 { "delay": 1000 }
 ```
 
@@ -29,7 +29,7 @@ If used with the `inline: false`, will set the `Content-Disposition` filename so
 `string`
 _`Default: ""`_
 
-```javascript
+```json
 { "filename": "filename.pdf" }
 ```
 
@@ -40,7 +40,7 @@ If set to true, the `Content-Disposition` gets set to `inline`. If set to false,
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 { "inline": true }
 ```
 
@@ -55,7 +55,7 @@ The selector of an element to wait for before performing the conversion.
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 {
     "waitForSelector": {
         "selector": "img"
@@ -74,7 +74,7 @@ Wait for the [selector](#selector) element to be present in the DOM and to be vi
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 {
     "waitForSelector": {
         "selector": "img",
@@ -92,7 +92,7 @@ Wait for the [selector](#selector) element to be present in the DOM and to be hi
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 {
     "waitForSelector": {
         "selector": "img",
@@ -110,7 +110,7 @@ Maximum amount of time to wait in milliseconds for the selector to meet the [vis
 `number`
 _`Default: 30000`_
 
-```javascript title="visible"
+```json title="visible"
 {
     "waitForSelector": {
         "selector": "img",
@@ -122,7 +122,7 @@ _`Default: 30000`_
 }
 ```
 
-```javascript title="hidden"
+```json title="hidden"
 {
     "waitForSelector": {
         "selector": "img",
@@ -141,7 +141,7 @@ Give any CSS `@page` size declared in the page priority over what is declared in
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 { "preferCSSPageSize": true }
 ```
 
@@ -152,7 +152,7 @@ Scale of the webpage rendering. Must be between 0.1 and 2.
 `number`
 _`Default: 0`_
 
-```javascript
+```json
 { "scale": 0.5 }
 ```
 
@@ -163,11 +163,11 @@ Paper height. Must be supported type of [units](#units) or number.
 `string|number`
 _`Default: <null>`_
 
-```javascript
+```json
 { "height": 100 }
 ```
 
-```javascript
+```json
 { "height": "1.25in" }
 ```
 
@@ -178,11 +178,11 @@ Paper width. Must be supported type of [units](#units) or number.
 `string|number`
 _`Default: <null>`_
 
-```javascript
+```json
 { "width": 100 }
 ```
 
-```javascript
+```json
 { "width": "1.25in" }
 ```
 
@@ -193,7 +193,7 @@ Paper orientation, false sets it to portrait and true to landscape.
 `boolean`
 _`Default: false_
 
-```javascript
+```json
 { "landscape": true }
 ```
 
@@ -204,7 +204,7 @@ Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, whic
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 { "pageRanges": "1-5" }
 ```
 
@@ -215,7 +215,7 @@ Will auto-scroll the page down to the very end. Helpful in forcing lazy-loaded c
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 { "autoScroll": true }
 ```
 
@@ -233,7 +233,7 @@ _`Default: "networkidle2"`_
 - `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least `500` ms.
 - `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least `500' ms.
 
-```javascript
+```json
 { "waitUntil": "load" }
 ```
 
@@ -244,7 +244,7 @@ Paper format, which takes priority over [width](#width) and [height](#height). D
 `string`
 _`Default: false`_
 
-```javascript
+```json
 { "format": "letter" }
 ```
 
@@ -252,7 +252,7 @@ _`Default: false`_
 
 Paper margins.
 
-```javascript
+```json
 {
     "margin": {
         "top": 0,
@@ -270,7 +270,7 @@ Top paper margin, must be supported type of [units](#units).
 `string|number`
 _`Default: "0.4in"`_
 
-```javascript
+```json
 {
     "margin": {
         "top": 100
@@ -285,7 +285,7 @@ Bottom paper margin, must be supported type of [units](#units).
 `string|number`
 _`Default: "0.39in"`_
 
-```javascript
+```json
 {
     "margin": {
         "bottom": 100
@@ -300,7 +300,7 @@ Left paper margin, must be supported type of [units](#units).
 `string|number`
 _`Default: "0.4in"`_
 
-```javascript
+```json
 {
     "margin": {
         "left": 0
@@ -315,7 +315,7 @@ Left paper margin, must be supported type of [units](#units).
 `string|number`
 _`Default: "0.39in"`_
 
-```javascript
+```json
 {
     "margin": {
         "right": 0
@@ -330,7 +330,7 @@ Print background graphics.
 `boolean`
 _`Default: false`_
 
-```javascript
+```json
 { "printBackground": true }
 ```
 
@@ -345,7 +345,7 @@ Template string if using template method type, otherwise ignored.
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 { "selector": ".my-div" }
 ```
 
@@ -357,7 +357,7 @@ _`Default: "text"`_
 - `text` - Uses the default text template method.
 - `extract` - Extracts the header from the HTML body based on the selector, encodes it, and applies styles before adding it to the PDF Header.
 
-```javascript
+```json
 { "method": "extract" }
 ```
 
@@ -368,7 +368,7 @@ Margin that is applied to the header container. Must be supported type of [margi
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 {
     "margin": {
         "top": "100px",
@@ -384,7 +384,7 @@ CSS style that gets applied to the header container. Chrome does not support all
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 {
     "style": {
         "width": "100%",
@@ -400,7 +400,7 @@ CSS style that gets applied to the header image container. Chrome does not suppo
 `string`
 _`Default: <null>`_
 
-```javascript
+```json
 {
     "imageStyle": {
         "padding-bottom": "10px",
@@ -429,7 +429,7 @@ _`Default: <null>`_
 </html>
 ```
 
-```javascript title="Parameters"
+```json title="Parameters"
 {
     "html": "PCFET0NUWVBFIGh0bWw+CjxodG1sPgogIDxoZWFkPiA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8ZGl2IGNsYXNzPSJwYWdlLWhlYWRlci1ib2IiIHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXIiPgogICAgICA8ZGl2IGlkPSJoZWFkZXIiPgogICAgICAgIDxzcGFuIHN0eWxlPSJmb250LXNpemU6IDIwcHg7IGNvbG9yOiByZWQiPkhlYWRlcjwvc3Bhbj4KCiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgICA8aDE+UGFnZSAxPC9oMT4KICAgIDxkaXYgc3R5bGU9ImhlaWdodDogODQycHgiPjwvZGl2PgogICAgPGgxPlBhZ2UgMjwvaDE+CiAgPC9ib2R5Pgo8L2h0bWw+Cg=="
     "margin": {
@@ -454,7 +454,7 @@ A caveat of using headers with PDFs is that the header exists inside the margins
 
 Template for the PDF header. See [headerTemplate](#headertemplate) for reference. Can be used identically to the headerTemplate, only difference is the property name.
 
-```javascript 
+```json 
 {
     "footerTemplate": "<...same as headerTemplate>"
 }
@@ -471,23 +471,23 @@ _Note: If the property accepts a number it defaults to pixels._
 - `cm` - centimeter
 - `mm` - millimeter
 
-```javascript title="px - pixel (number)"
+```json title="px - pixel (number)"
 { "width": 100 }
 ```
 
-```javascript title="px - pixel"
+```json title="px - pixel"
 { "width": "100px" }
 ```
 
-```javascript title="in - inch"
+```json title="in - inch"
 { "width": "100in" }
 ```
 
-```javascript title="cm - centimeter"
+```json title="cm - centimeter"
 { "width": "100cm" }
 ```
 
-```javascript title="mm - millimeter"
+```json title="mm - millimeter"
 { "width": "100mm" }
 ```
 

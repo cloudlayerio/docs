@@ -1,0 +1,75 @@
+## Url Parameters
+### `url`
+
+Source URL to use for generating the content.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "url": "http://google.com" }
+```
+
+### `viewPort`
+
+Set the Viewport of the page before navigation.
+
+```json
+{
+    "viewPort": {
+        "width": 1024,
+        "height": 768,
+        "deviceScaleFactor": 2
+    }
+}
+```
+
+#### `width` {#viewport-width}
+Page width in pixels only.
+**Required**
+
+`number`
+_`Default: <null>`_
+
+```json
+{
+    "viewPort": {
+        "width": 1024
+    }
+}
+```
+
+#### `height` {#viewport-height}
+Page height in pixels only.
+**Required**
+
+`number`
+_`Default: <null>`_
+
+```json
+{
+    "viewPort": {
+        "height": 768
+    }
+}
+```
+
+#### `deviceScaleFactor`
+Specify device scale factor (DPR). [Height](#viewport-height) and [Width](#viewport-width) are always required.
+**Required**
+
+`number`
+_`Default: 1`_
+
+```json
+{
+    "viewPort": {
+        "width": 640,
+        "height": 480,
+        "deviceScaleFactor": 1
+    }
+}
+```
+
