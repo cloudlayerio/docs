@@ -76,7 +76,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'API Reference',
+            label: 'API',
           },
           {
             type: 'doc',
