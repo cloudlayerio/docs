@@ -1,2 +1,128 @@
 ## Base Parameters
+
 Parameters that exist on **all** services.
+
+### `viewPort`
+
+Set the Viewport of the page before navigation.
+
+```json
+{
+  "viewPort": {
+    "width": 1024,
+    "height": 768,
+    "deviceScaleFactor": 2
+  }
+}
+```
+
+#### `width` {#viewport-width}
+
+Page width in pixels only.
+**Required**
+
+`number`
+_`Default: <null>`_
+
+```json
+{
+  "viewPort": {
+    "width": 1024
+  }
+}
+```
+
+#### `height` {#viewport-height}
+
+Page height in pixels only.
+**Required**
+
+`number`
+_`Default: <null>`_
+
+```json
+{
+  "viewPort": {
+    "height": 768
+  }
+}
+```
+
+#### `deviceScaleFactor`
+
+Specify device scale factor (DPR). [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`number`
+_`Default: 1`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "deviceScaleFactor": 1
+  }
+}
+```
+
+#### `isMobile`
+
+Whether the `meta viewport` tag is taken into account. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "isMobile": true
+  }
+}
+```
+
+#### `hasTouch`
+
+Specifies if viewport supports touch events. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "hasTouch": true
+  }
+}
+```
+
+#### `isLandscape`
+
+Specifies if viewport is in landscape mode. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+
+`boolean`
+_`Default: false`_
+
+```json
+{
+  "viewPort": {
+    "width": 640,
+    "height": 480,
+    "isLandscape": true
+  }
+}
+```
+
+### `timeZone`
+
+Changes the timezone of the page. See [ICU's metaZones.txt](https://source.chromium.org/chromium/chromium/deps/icu.git/+/faee8bc70570192d82d2978a71e2a615788597d1:source/data/misc/metaZones.txt) for a list of supported timezone IDs.
+
+`string`
+_`Default: <null>`_
+
+```json
+{ "timeZone": "Europe/Rome" }
+```

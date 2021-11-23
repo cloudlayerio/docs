@@ -15,116 +15,252 @@ _`Default: ""`_
 { "url": "http://google.com" }
 ```
 
-### `viewPort`
+### `authentication`
 
-Set the Viewport of the page before navigation.
+Provide credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (Basic Auth).
 
 ```json
 {
-  "viewPort": {
-    "width": 1024,
-    "height": 768,
-    "deviceScaleFactor": 2
+  "authentication": {
+    "username": "bob",
+    "password": "abc123"
   }
 }
 ```
 
-#### `width` {#viewport-width}
+#### `username`
 
-Page width in pixels only.
+The username for authenticating. Username and Password are both required.
+
 **Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "authentication": {
+    "username": "bob",
+    "password": "..."
+  }
+}
+```
+
+#### `password`
+
+The password for authenticating. Username and Password are both required.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "authentication": {
+    "username": "...",
+    "password": "abc123"
+  }
+}
+```
+
+### `cookies`
+
+Sets up one to many cookies for the page prior to navigation.
+
+```json
+{
+  "cookies": [
+    {
+      "name": "cookie_notice_accept",
+      "value": "1",
+      "domain": "www.example.com",
+      "path": "/",
+      "expires": 1668752280
+    },
+    {
+      "name": "_session_id",
+      "value": "ad9a8u90f0df7d87fdas9fa892342",
+      "domain": "www.example.com",
+      "path": "/",
+      "expiration": 1668752280,
+      "httpOnly": true
+    }
+  ]
+}
+```
+
+#### `name` {#cookie-name}
+
+The name of the cookie to set. Name and value are both required.
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "..."
+    }
+  ]
+}
+```
+
+#### `value` {#cookie-value}
+
+The name of the cookie to set. Name and value are both required.
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "cookies": [
+    {
+      "name": "...",
+      "value": "SomeCookieValue"
+    }
+  ]
+}
+```
+
+#### `url` {#cookie-name}
+
+The url to use for the cookie. This is usually left empty.
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "url": "https://www.example.com"
+    }
+  ]
+}
+```
+
+#### `domain` {#cookie-domain}
+
+Defines the host to which the cookie will be sent. If omitted, this attribute defaults to the host of the current document URL, not including subdomains.
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "domain": "www.example.com"
+    }
+  ]
+}
+```
+
+#### `path` {#cookie-path}
+
+Indicates the path that must exist in the requested URL for the browser to send the `Cookie` header.
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "path": "/"
+    }
+  ]
+}
+```
+
+#### `expires` {#cookie-expires}
+
+Indicates the maximum lifetime of the cookie as an Unix time integer.
 
 `number`
 _`Default: <null>`_
 
 ```json
 {
-  "viewPort": {
-    "width": 1024
-  }
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "expires": 1668752280
+    }
+  ]
 }
 ```
 
-#### `height` {#viewport-height}
+#### `httpOnly` {#cookie-httponly}
 
-Page height in pixels only.
-**Required**
+Forbids JavaScript from accessing the cookie.
 
-`number`
+`boolean`
 _`Default: <null>`_
 
 ```json
 {
-  "viewPort": {
-    "height": 768
-  }
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "httpOnly": true
+    }
+  ]
 }
 ```
 
-#### `deviceScaleFactor`
+#### `secure` {#cookie-secure}
 
-Specify device scale factor (DPR). [Height](#viewport-height) and [Width](#viewport-width) are always required.
-
-`number`
-_`Default: 1`_
-
-```json
-{
-  "viewPort": {
-    "width": 640,
-    "height": 480,
-    "deviceScaleFactor": 1
-  }
-}
-```
-
-#### `isMobile`
-
-Whether the `meta viewport` tag is taken into account. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+Indicates that the cookie is sent to the server only when a request is made with the https: scheme.
 
 `boolean`
-_`Default: false`_
+_`Default: <null>`_
 
 ```json
 {
-  "viewPort": {
-    "width": 640,
-    "height": 480,
-    "isMobile": true
-  }
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "secure": true
+    }
+  ]
 }
 ```
 
-#### `hasTouch`
+#### `sameSite` {#cookie-samesite}
 
-Specifies if viewport supports touch events. [Height](#viewport-height) and [Width](#viewport-width) are always required.
+Controls whether or not a cookie is sent with cross-origin requests.
 
-`boolean`
-_`Default: false`_
+`string<"Strict|Lax">`
+_`Default: <null>`_
 
-```json
-{
-  "viewPort": {
-    "width": 640,
-    "height": 480,
-    "hasTouch": true
-  }
-}
-```
-
-#### `isLandscape`
-
-Specifies if viewport is in landscape mode. [Height](#viewport-height) and [Width](#viewport-width) are always required.
-
-`boolean`
-_`Default: false`_
+Values
+- `Strict`
+- `Lax`
 
 ```json
 {
-  "viewPort": {
-    "width": 640,
-    "height": 480,
-    "isLandscape": true
-  }
+  "cookies": [
+    {
+      "name": "myCookie",
+      "value": "some_data",
+      "sameSite": "Strict"
+    }
+  ]
 }
 ```
