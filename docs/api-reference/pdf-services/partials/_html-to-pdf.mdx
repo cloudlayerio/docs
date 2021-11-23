@@ -10,10 +10,6 @@ Supports all parameters being passed into request as JSON. All parameter types a
 - [Base Parameters](#base-parameters)
 - [Pdf Parameters](#pdf-parameters)
 
-:::tip
-Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
-:::
-
 ```html title="POST /html/pdf"
 https://api.cloudlayer.io/v1/html/pdf
 ```
@@ -53,6 +49,11 @@ wget --method POST \
   - https://api.cloudlayer.io/v1/html/pdf \
   -O "google.pdf"
 ```
+
+:::tip
+Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
+:::
+
 
 :::info
 For more examples, checkout the [HTML to PDF Examples](examples/html-to-pdf/).

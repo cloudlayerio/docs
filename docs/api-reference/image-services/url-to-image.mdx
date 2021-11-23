@@ -4,10 +4,23 @@ slug: /url-to-image
 title: Url to Image
 ---
 
-import PdfParams, { toc as PdfParamsTOC } from "./partials/_pdf-params.mdx";
 import UrlToImage, { toc as UrlToImageTOC } from "./partials/_url-to-image.mdx";
 
-<UrlToImage />
-<PdfParams />
+import UrlParams, { toc as UrlParamsTOC } from "../partials/_url-params.mdx";
+import BaseParams, { toc as BaseParamsTOC } from "../partials/_base-params.mdx";
+import ImageParams, {
+  toc as ImageParamsTOC,
+} from "./partials/_image-params.mdx";
 
-export const toc = [...UrlToImageTOC, ...PdfParamsTOC]
+<UrlToImage />
+<UrlParams />
+<BaseParams />
+<UrlToImage />
+<ImageParams />
+
+export const toc = [
+  ...UrlToImageTOC,
+  ...UrlParamsTOC,
+  ...BaseParamsTOC,
+  ...ImageParamsTOC,
+];

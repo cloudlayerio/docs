@@ -90,7 +90,7 @@ html[data-theme='dark'] {
   --ifm-background-color: #0E071D;
   --ifm-navbar-background-color: #381C6F;
   --ifm-hr-border-color: #412082;
-
+  --ifm-toc-border-color: #2B1555;
   /* any other colors you wish to overwrite */
 }
 

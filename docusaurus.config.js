@@ -62,7 +62,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'cloudlayer.io',
+        title: 'cloudlayer.io docs',
         logo: {
           alt: 'cloudlayer.io',
           src: 'img/logo.svg',
@@ -152,6 +152,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['csharp']
       },
       colorMode: {
         defaultMode: 'dark'

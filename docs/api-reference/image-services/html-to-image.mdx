@@ -4,10 +4,25 @@ slug: /html-to-image
 title: Html to Image
 ---
 
-import PdfParams, { toc as PdfParamsTOC } from "./partials/_pdf-params.mdx";
 import HtmlToImage, { toc as HtmlToImageTOC } from "./partials/_html-to-image.mdx";
 
-<HtmlToImage />
-<PdfParams />
+import HtmlParams, { toc as HtmlParamsTOC } from "../partials/_html-params.mdx";
+import BaseParams, { toc as BaseParamsTOC } from "../partials/_base-params.mdx";
+import ImageParams, {
+  toc as ImageParamsTOC,
+} from "./partials/_image-params.mdx";
 
-export const toc = [...HtmlToImageTOC, ...PdfParamsTOC]
+<HtmlToImage />
+<HtmlParams />
+<BaseParams />
+<UrlToImage />
+<ImageParams />
+
+export const toc = [
+  ...HtmlToImageTOC,
+  ...HtmlParamsTOC,
+  ...BaseParamsTOC,
+  ...ImageParamsTOC,
+];
+
+;
