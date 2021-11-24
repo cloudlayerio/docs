@@ -56,11 +56,7 @@
   margin-right: 4rem;
 }
 
-.navbar__items .navbar__item, .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-styles-module {
-  margin-top: -6px;
-}
-
-.toggleTrack_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-styles-module {
+.navbar__items--right [role=button] {
   background: #0E071D;
 }
 

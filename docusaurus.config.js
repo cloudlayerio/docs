@@ -153,6 +153,8 @@ const config = {
       },
       colorMode: {
         defaultMode: "dark",
+
+        
       },
       algolia: {
         appId: "CYBU4R0YTU",
