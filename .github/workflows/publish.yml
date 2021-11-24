@@ -25,7 +25,6 @@ jobs:
             npm i
           fi
           npm run build
-  # gh-release:
     # if: github.event_name != 'pull_request'
     # runs-on: ubuntu-latest
     # steps:
@@ -60,6 +59,7 @@ jobs:
     #       -H "Authorization: Bearer ${CF_TOKEN}" \
     #       -H "Content-Type: application/json" \
     #       --data '{"purge_everything":true}'
+  # gh-release:
   indexer:
     # needs: [gh-release]
     runs-on: ubuntu-latest
