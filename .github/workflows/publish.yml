@@ -71,5 +71,3 @@ jobs:
           algolia_application_id: ${ secrets.ALGOLIA_APPID }}
           algolia_api_key: ${ secrets.ALGOLIA_SEARCHKEY }
           file: algolia-config.json
-      - name: test
-        run: echo $(ls -l $GITHUB_WORKSPACE/$FILE)
