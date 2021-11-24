@@ -69,4 +69,4 @@ jobs:
         with:
           algolia_application_id: ${ secrets.ALGOLIA_APPID }}
           algolia_api_key: ${ secrets.ALGOLIA_SEARCHKEY }
-          file: "algolia-config.json"
+          file: "$GITHUB_WORKSPACE/algolia-config.json"
