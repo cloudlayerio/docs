@@ -63,10 +63,13 @@ jobs:
   indexer:
     needs: [gh-release]
     runs-on: ubuntu-latest
+    name: Algolia Indexer
     steps:
       - uses: actions/checkout@v2
       - uses: darrenjennings/algolia-docsearch-action@master
+      - name: Run Indexer
+        uses: ./
         with:
           algolia_application_id: ${ secrets.ALGOLIA_APPID }}
           algolia_api_key: ${ secrets.ALGOLIA_SEARCHKEY }
-          file: "$GITHUB_WORKSPACE/algolia-config.json"
+          file: algolia-config.json
