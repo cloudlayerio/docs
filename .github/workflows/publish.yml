@@ -5,7 +5,6 @@ on:
     branches: [main]
   push:
     branches: [main]
-
 jobs:
   checks:
     if: github.event_name != 'push'
@@ -25,43 +24,43 @@ jobs:
             npm i
           fi
           npm run build
-    # if: github.event_name != 'pull_request'
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - uses: actions/checkout@v1
-    #   - uses: actions/setup-node@v1
-    #     with:
-    #       node-version: "14.x"
-    #   - uses: webfactory/ssh-agent@v0.5.0
-    #     with:
-    #       ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
-    #   - name: Release to GitHub Pages
-    #     env:
-    #       USE_SSH: true
-    #       GIT_USER: git
-    #     run: |
-    #       git config --global user.email "eric@cloudlayer.io"
-    #       git config --global user.name "elucidsoft"
-    #       if [ -e yarn.lock ]; then
-    #         yarn install --frozen-lockfile
-    #       elif [ -e package-lock.json ]; then
-    #         npm ci
-    #       else
-    #         npm i
-    #       fi
-    #       npm run deploy
-    #   - name: Purge Cloudflare Cache
-    #     env:
-    #       CF_ZONE: ${{ secrets.CF_ZONE }}
-    #       CF_TOKEN: ${{ secrets.CF_TOKEN }}
-    #     run: |
-    #       curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
-    #       -H "Authorization: Bearer ${CF_TOKEN}" \
-    #       -H "Content-Type: application/json" \
-    #       --data '{"purge_everything":true}'
-  # gh-release:
+  gh-release:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
+        run: |
+          git config --global user.email "eric@cloudlayer.io"
+          git config --global user.name "elucidsoft"
+          if [ -e yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+          npm run deploy
+      - name: Purge Cloudflare Cache
+        env:
+          CF_ZONE: ${{ secrets.CF_ZONE }}
+          CF_TOKEN: ${{ secrets.CF_TOKEN }}
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
+          -H "Authorization: Bearer ${CF_TOKEN}" \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}'
   indexer:
-    # needs: [gh-release]
+    needs: [gh-release]
     runs-on: ubuntu-latest
     name: Algolia Indexer
     steps:
