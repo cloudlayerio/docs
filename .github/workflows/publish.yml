@@ -61,6 +61,7 @@ jobs:
           -H "Content-Type: application/json" \
           --data '{"purge_everything":true}'
   indexer:
+    needs: [gh-release]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
