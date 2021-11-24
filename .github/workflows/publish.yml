@@ -60,3 +60,10 @@ jobs:
           -H "Authorization: Bearer ${CF_TOKEN}" \
           -H "Content-Type: application/json" \
           --data '{"purge_everything":true}'
+      - name: Run Algolia Indexer
+      - uses: actions/checkout@v2
+      - uses: darrenjennings/algolia-docsearch-action@master
+        with:
+          algolia_application_id: ${ secrets.ALGOLIA_APPID }}
+          algolia_api_key: ${ secrets.ALGOLIA_SEARCHKEY }
+          file: "algolia-config.json"
