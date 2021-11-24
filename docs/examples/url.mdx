@@ -1,1 +1,73 @@
 # Url Examples
+
+Using a URL you can convert a website that is accessible on the internet. If you require authentication to access your URL, see the [Authentication](authentication/) section for examples.
+
+In these examples, we will demonstrate how you can use a URL to generate a PDF and Image without authentication, and with authentication including cookie session.
+
+## Simple URL
+
+At its most basic, a URL is the only required parameter to generate a PDF or Image.
+
+```json
+{
+  "url": "https://google.com"
+}
+```
+
+### Pdf
+
+```shell title="cURL - Google Pdf"
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/pdf \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+    "url": "https://google.com"
+}' \
+--output "google.pdf"
+```
+
+```shell title="Wget - Google Pdf"
+wget --method POST \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --body-data '{"url": "https://google.com"}' \
+  - https://api.cloudlayer.io/v1/url/pdf \
+  -O "google.pdf"
+```
+
+### Image
+
+```shell title="cURL - Google PNG"
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/image \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+    "url": "https://google.com"
+}' \
+--output "google.png"
+```
+
+```shell title="Wget - Google PNG"
+wget --method POST \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --body-data '{"url": "https://google.com"}' \
+  - https://api.cloudlayer.io/v1/url/image \
+  -O "google.png"
+```
+
+### Autoscroll
+Some sites have lazy loaded images and other content that is not loaded until the page scrolls past a certain point.  Using autoscroll, will scroll down the page forcing the content to be loaded before performing the conversion.
+
+```shell title="Autoscroll Example"
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/image \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+	"url": "https://apple.com",
+	"autoScroll": true
+}'
+```

@@ -1,2 +1,63 @@
-
 # Authentication Examples
+
+There are two methods to authenticating your site. Using basic authentication with username/password and cookies.
+
+## Basic auth
+
+If your URL is protected behind basic HTTP Authentication, you can pass in the username/password combination.
+
+```json title="HttpWatch Example"
+{
+  "url": "https://www.httpwatch.com/httpgallery/authentication/authenticatedimage/default.aspx",
+  "authentication": {
+    "username": "httpwatch",
+    "password": "1"
+  }
+}
+```
+
+In this example, the HttpWatch website will generate an image with the basic auth details. Each time the image gets generated, you must change the password to generate a new image, which produces an example that shows failing and succeeding authentication.
+
+### cURL
+
+```shell
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/image \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+	"url": "https://www.httpwatch.com/httpgallery/authentication/authenticatedimage/default.aspx",
+	"authentication": {
+		"username": "httpwatch",
+		"password": "1"
+	}
+}'
+```
+
+## Cookie auth
+
+Cookies can get used to create a user session creating an authenticated user state.
+
+```shell title="cURL Cookie Example"
+curl --request POST \
+  --url https://api.cloudlayer.io/v1/url/image \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-key: <YOUR-API-KEY>' \
+  --data '{
+	"url": "https://www.example.com",
+	"cookies": [
+		{
+			"name": "_session_id",
+			"value": "ad9a8u90f0df7d87fdas9fa892342",
+			"domain": "www.example.com",
+			"path": "/",
+			"expiration": 1668752280,
+			"httpOnly": true
+		}
+	]
+}'
+```
+
+_<sup>Note: The above example does not work, for security and privacy concerns we cannot provide a working example of emulating a users session via a cookie.</sup>_
+
+You can play around with this example by using a browser plugin to examine your cookies and using those values.
