@@ -19,5 +19,5 @@ We support two methods of authenticating your site, basic HTTP authentication wi
 Passing in HTML is the easiest, most flexible, and fastest method for generating a document. But, unfortunately, it can be the most confusing and technically challenging. In this section we provide some examples to make it easier to begin using this powerful feature.
 
 ## [Url Examples](examples/url)
-Using a URL, you can convert a website that is accessible on the internet. In this section, we demonstrate how to use a URL to generate a pdf and an image. If you require authentication to access your URL, see the [Authentication](authentication/) section for examples.
+Using a URL, you can convert a website that is accessible on the internet. In this section, we demonstrate how to use a URL to generate a pdf and an image. If you require authentication to access your URL, see the [Authentication](examples/authentication/) section for examples.
 
