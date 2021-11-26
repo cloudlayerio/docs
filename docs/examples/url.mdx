@@ -1,10 +1,8 @@
 # Url Examples
 
-Using a URL you can convert a website that is accessible on the internet. If you require authentication to access your URL, see the [Authentication](authentication/) section for examples.
+Using a URL, you can convert a website that is accessible on the internet. In this section, we demonstrate how to use a URL to generate a pdf and an image. If you require authentication to access your URL, see the [Authentication](authentication/) section for examples.
 
-In these examples, we will demonstrate how you can use a URL to generate a PDF and Image without authentication, and with authentication including cookie session.
-
-## Simple URL
+## Json Request
 
 At its most basic, a URL is the only required parameter to generate a PDF or Image.
 
@@ -14,7 +12,7 @@ At its most basic, a URL is the only required parameter to generate a PDF or Ima
 }
 ```
 
-### Pdf
+## Pdf Example
 
 ```shell title="cURL - Google Pdf"
 curl --request POST \
@@ -36,7 +34,7 @@ wget --method POST \
   -O "google.pdf"
 ```
 
-### Image
+## Image Example
 
 ```shell title="cURL - Google PNG"
 curl --request POST \
@@ -58,8 +56,9 @@ wget --method POST \
   -O "google.png"
 ```
 
-### Autoscroll
-Some sites have lazy loaded images and other content that is not loaded until the page scrolls past a certain point.  Using autoscroll, will scroll down the page forcing the content to be loaded before performing the conversion.
+## Autoscroll
+
+Some sites have lazy loaded images and other content that is not loaded until the page scrolls past a certain point. Using autoscroll, will scroll down the page forcing the content to be loaded before performing the conversion.
 
 ```shell title="Autoscroll Example"
 curl --request POST \
