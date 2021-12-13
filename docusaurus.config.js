@@ -65,7 +65,7 @@ const config = {
           src: "img/logo.svg",
           width: 32,
           height: 32,
-          href: "https://cloudlayer.io",
+          href: "https://docs.cloudlayer.io",
           target: "_self",
         },
         items: [
@@ -90,13 +90,14 @@ const config = {
             docsPluginId: "docs-examples",
           },
           {
-            href: "https://blog.cloudlayer.io",
-            label: "Blog",
+            href: "https://cloudlayer.io",
+            label: "cloudlayer.io",
+            position: "right"
           },
           {
-            href: "https://github.com/cloudlayerio/docs",
-            label: "GitHub",
-            position: "right",
+            href: "https://blog.cloudlayer.io",
+            label: "Blog",
+            position: "right"
           },
         ],
       },
