@@ -15,9 +15,10 @@ https://api.cloudlayer.io/v1/url/pdf?url={url}&timeout={timeout}
 
 ### POST /url/pdf
 
-Supports all parameters being passed into request as JSON. All parameter types are supported.
+Supports all parameters being passed into request as JSON. The following parameter types are supported:
 
 - [Url Parameters](#url-parameters)
+- [Batch Url Parameters](#batch-url-parameters)
 - [Base Parameters](#base-parameters)
 - [Pdf Parameters](#pdf-parameters)
 
@@ -31,7 +32,7 @@ https://api.cloudlayer.io/v1/url/pdf
 
 ```json title="JSON Payload"
 {
-    "url": "https://google.com",
+  "url": "https://google.com"
 }
 ```
 
@@ -39,15 +40,15 @@ https://api.cloudlayer.io/v1/url/pdf
 
 ```json title="Viewport Example"
 {
-	"url": "https://google.com",
-	"viewPort": {
-		"width": 800,
-		"height": 400
-	}
+  "url": "https://google.com",
+  "viewPort": {
+    "width": 800,
+    "height": 400
+  }
 }
 ```
 
-```shell title="cURL Example" 
+```shell title="cURL Example"
 curl --request POST \
   --url https://api.cloudlayer.io/v1/url/pdf \
   --header 'Content-Type: application/json' \
@@ -70,4 +71,3 @@ wget --method POST \
 :::info
 For more examples, checkout the [Examples](examples/) section.
 :::
-

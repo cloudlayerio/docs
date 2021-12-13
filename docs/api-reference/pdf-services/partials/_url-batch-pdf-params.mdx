@@ -1,0 +1,23 @@
+## Batch Url Parameters
+
+Parameters that exist on URL based PDF services that can be used for batch processing PDFs.
+
+### `batch` {#url-batch-pdf-batch}
+
+Array of URLs to convert to PDF and then combine into a single PDF file.
+
+**Required** - Replaces URL parameter if defined.
+
+`array` _`Default: []`_
+
+```json
+{
+  "batch": [
+    "https://google.com",
+    "https://wikipedia.com",
+    "https://example.com"
+  ]
+}
+```
+
+**Note:** Batch counts as multiple API credits, one credit per batch URL, and one credit for the batch call that merges and combines the PDFs. Bytes used and call time are aggregates of all operations. In the above example, four total API credits get used.
