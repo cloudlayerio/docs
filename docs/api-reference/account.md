@@ -14,7 +14,6 @@ Returns a JSON object containing the information about your account. Uses any AP
 
 ```html title="GET /account"
 https://api.cloudlayer.io/v1/account
-
 ```
 
 :::tip
