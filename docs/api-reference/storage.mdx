@@ -1,0 +1,88 @@
+---
+sidebar_position: 2
+slug: /storage
+---
+
+import { BaseUrlCodeBlock } from "./partials/_base-url.mdx";
+
+# Storage
+
+cloudlayer.io supports three different storage types.
+
+- **No storage**: All calls must be synchronous, and the response returns the results immediately.
+
+- **Cloud Storage**: Calls can be synchronous or asynchronous. Your document is stored in your account using the storage included in your subscription.
+
+- **User Storage**: All calls must be asynchronous. Configure your own private S3 compatible storage, such as AWS S3, Digital Ocean Spaces, or similar.
+
+Using the cloud storage available as part of your account is the recommended approach unless you have specific needs to use the others.
+
+## No Storage
+
+Using the no storage option is the most limiting option and prevents the usage and integration of other services but may be a good option if you have sensitive documents that you want to ensure are never stored on our servers.
+
+```javascript title="Disable Storage"
+{
+  "useStorage": false
+}
+```
+
+:::info
+
+- In `v2` and above `useStorage: true` is the default.
+- In `v1` and above `useStorage: false` is the default.
+
+:::
+
+:::note
+When using `No Storage`, the asset endpoints are disabled.
+:::
+
+## Cloud Storage
+
+Cloud Storage is storage that gets included with your account. The size depends on the plan you selected. Using cloud storage is the preferred method. All new users and calls should prefer this method to integrate tightly with our other services and future offerings.
+
+When using Cloud Storage, you can use the assets endpoints to get, list, and delete your assets.
+
+```json title="Disable Storage"
+{
+  "useStorage": true
+}
+```
+
+:::info
+The `v2` endpoint has storage enabled by default, so no configuration is required.
+:::
+
+## User Storage
+
+User Storage is the most complex of the storage options. Only supports asynchronous calls. Allows storage of your assets in your own private S3 compatible storage such as AWS S3, Digital Ocean Spaces, Wasabi, Ceph, etc.
+
+The storage endpoints let you manage user storage, such as add, get, list, and delete.
+
+To enable user storage, you must use the storage `POST` endpoint to create a user storage configuration. Then pass the id of that configuration into the request.
+
+:::info
+Account information added is encrypted using bank level encryption and is kept secure at all times.
+:::
+
+```json title="Enabled User Storage"
+{
+  "storage": {
+    "id": "123456ab-1234-abcd-1234-123abc12"
+  }
+}
+```
+
+## Endpoints
+
+Several endpoints exist to manage User Storage. These endpoints allow adding storage accounts, getting the id of the storage account, and listing storage accounts.
+
+### GET /storage:id
+
+This endpoint retrieves the title and id of the storage document by id.
+
+<BaseUrlCodeBlock
+  path="/storage/123456ab-1234-abcd-1234-123abc12"
+  title="GET /storage:id"
+/>

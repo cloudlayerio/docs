@@ -16,7 +16,6 @@ const config = {
   organizationName: "cloudlayerio", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
-
   presets: [
     [
       "@docusaurus/preset-classic",

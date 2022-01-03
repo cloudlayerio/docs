@@ -1,3 +1,5 @@
+import { BaseUrlCodeBlock } from "../../partials/_base-url.mdx";
+
 Convert any HTML to an Image using any valid HTML, CSS, Javascript, SASS, etc. As long as the base64 encoded JSON payload is below 10MB in size, we will accept it and convert it.
 
 ## Endpoints
@@ -9,9 +11,7 @@ Supports all parameters being passed into request as JSON. The following paramet
 - [Html Parameters](#html-parameters)
 - [Base Parameters](#base-parameters)
 
-```html title="POST /html/image"
-https://api.cloudlayer.io/v1/html/image
-```
+<BaseUrlCodeBlock path="/html/image" title="POST /html/image" />
 
 ```json title="JSON Payload"
 { "html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4=" }
