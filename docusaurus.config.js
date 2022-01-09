@@ -53,6 +53,15 @@ const config = {
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docs-changelog",
+        path: "docs/changelog",
+        routeBasePath: "changelog",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -89,14 +98,21 @@ const config = {
             docsPluginId: "docs-examples",
           },
           {
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "Changelog",
+            docsPluginId: "docs-changelog",
+          },
+          {
             href: "https://cloudlayer.io",
             label: "cloudlayer.io",
-            position: "right"
+            position: "right",
           },
           {
             href: "https://blog.cloudlayer.io",
             label: "Blog",
-            position: "right"
+            position: "right",
           },
         ],
       },
@@ -153,8 +169,6 @@ const config = {
       },
       colorMode: {
         defaultMode: "dark",
-
-        
       },
       algolia: {
         appId: "CYBU4R0YTU",

@@ -74,6 +74,24 @@ _<sup>Note: Requests against informational endpoints such as this one do not cou
 
 ## Async & Sync
 
-All calls made to the current API are synchronous by default.
+All calls made to the `v1` API are synchronous by default. In `v2` endpoints, all calls are asynchronous by default.
 
-**_ Asynchronous calling and webhook support coming in the future. _**
+### v1 Endpoints
+
+If you're using the `v1` endpoint and want to use asynchronous calls, you can pass the parameter `async: true`, which will force asynchronous calls.
+
+```json title="Use Asynchronous Calls in v1 Endpoint"
+{
+  "async": true
+}
+```
+
+### v2 Endpoints
+
+If your using the `v2` endpoint and want to use synchronous calls you can pass in `async: false`
+
+```json title="Use Synchrounous Calls in v2 Endpoints"
+{
+  "async": false
+}
+```

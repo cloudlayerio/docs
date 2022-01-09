@@ -1,10 +1,10 @@
-import { BaseUrlCodeBlock } from "../../partials/_base-url.mdx";
+import { BaseUrlCodeBlock } from "../../../partials/_base-url.mdx";
 
-Convert any URL to a PDF using a publicly accessible webpage URL or one behind basic authentication or cookie authentication using our authentication mechanisms.
+Convert any URL to an Image using a publicly accessible webpage URL or one behind basic authentication or cookie authentication using our authentication mechanisms.
 
 ## Endpoints
 
-### GET /url/pdf
+### GET /url/image
 
 Supports simple requests with only two parameter options.
 
@@ -12,24 +12,24 @@ Supports simple requests with only two parameter options.
 - `timeout` (optional)
 
 <BaseUrlCodeBlock
-  path="/url/pdf?url={url}&timeout={timeout}"
-  title="GET /url/pdf"
+  path="/url/image?url={url}&timeout={timeout}"
+  title="GET /url/image"
 />
 
-### POST /url/pdf
+### POST /url/image
 
 Supports all parameters being passed into request as JSON. The following parameter types are supported:
 
 - [Url Parameters](#url-parameters)
-- [Batch Url Parameters](#batch-url-parameters)
 - [Base Parameters](#base-parameters)
-- [Pdf Parameters](#pdf-parameters)
 
 :::tip
 Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
 :::
 
-<BaseUrlCodeBlock url="/url/pdf" title="POST /url/pdf" />
+```html title="POST /url/image"
+https://api.cloudlayer.io/v1/url/image
+```
 
 ```json title="JSON Payload"
 {
@@ -51,13 +51,13 @@ Make sure your `Content-Type` gets set to `application/json`, and that you have 
 
 ```shell title="cURL Example"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/url/pdf \
+  --url https://api.cloudlayer.io/v1/url/image \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
 	"url": "https://google.com"
 }' \
---output "google.pdf"
+--output "google.png"
 ```
 
 ```shell title="Wget Example"
@@ -65,8 +65,8 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
-  - https://api.cloudlayer.io/v1/url/pdf \
-  -O "google.pdf"
+  - https://api.cloudlayer.io/v1/url/image \
+  -O "google.png"
 ```
 
 :::info

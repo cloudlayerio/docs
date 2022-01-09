@@ -21,8 +21,8 @@ https://api.cloudlayer.io/v1/account
 Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
 :::
 
-## Response
-The values, unless otherwise indicated, are for each monthly billing cycle if you're using a fixed plan. For usage plans, the totals are for the plan's lifetime.
+## Account Response
+The account values for each account response. If an error occurs the appropriate [HTTP Status Code](/#http-status-codes) will be returned.
 
 :::info
 An account usage threshold email gets sent to you if your nearing one of your limits or credit is low.
