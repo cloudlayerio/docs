@@ -85,9 +85,13 @@ Account information added is encrypted using bank level encryption and is kept s
 
 Several endpoints exist to manage User Storage. These endpoints allow adding storage accounts, getting the id of the storage account, and listing storage accounts.
 
+## User Storage Endpoints
+
 ### POST /storages
 
 This endpoint adds a storage account. By default, it uses AWS. However, you may specify a custom endpoint to support any S3 compatible storage.
+
+[User Storage Params](#user-storage-params) get passed into this endpoint.
 
 <BaseUrlCodeBlock path="/storages" title="POST /storages" />
 
@@ -166,3 +170,83 @@ This endpoint removes the configured storage account by id.
 <BaseUrlCodeBlock path="/storages:id" title="DEL /storages:id" />
 
 If an error occurs or no records found will return a `400` with a message indicating the reason.
+
+## User Storage Params
+
+### `title`
+
+The title of the storage credential used for reference must be unique across all storage credentials in your account.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "title": "My AWS Storage" }
+```
+
+### `region`
+
+Region for the AWS region. If using an S3, compatible storage option but not AWS, follow that provider's directions. For example, Digital Ocean specifies to pass in `us-east-1` for all regions.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "region": "us-east-1" }
+```
+
+### `secretAccessKey`
+
+The SecretAccessKey provided by the provider.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "secretAccessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+```
+
+### `accessKeyId`
+
+The AccessKeyId provided by the provider.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "accessKeyId": "XXXXXXXXXXXXXXXXXXX" }
+```
+
+### `bucket`
+
+The bucket to store all the assets.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "bucket": "mybucket" }
+```
+
+### `endpoint`
+
+The bucket to store all the assets.
+
+**Optional**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "endpoint": "https://nyc3.digitaloceanspaces.com" }
+```
