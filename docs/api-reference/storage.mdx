@@ -17,6 +17,34 @@ cloudlayer.io supports three different storage types.
 
 Using the cloud storage available as part of your account is the recommended approach unless you have specific needs to use the others.
 
+### `storage`
+
+The bucket to store all the assets.
+
+**Required**
+
+`{ id: <string> } | boolean` _`Default: "true"`_
+
+```json title="No Storage"
+{
+  "storage": "false"
+}
+```
+
+```json title="Cloud Storage"
+{
+  "storage": "true"
+}
+```
+
+```json title="User Storage"
+{
+  "storage": {
+    "id": "123456ab-1234-abcd-1234-123abc12"
+  }
+}
+```
+
 ## No Storage
 
 All calls must be synchronous, and the response returns the results immediately.
@@ -25,14 +53,14 @@ Using the no storage option is the most limiting option and prevents the usage a
 
 ```javascript title="Disable Storage"
 {
-  "useStorage": false
+  "storage": false
 }
 ```
 
 :::info
 
-- In `v2` `useStorage: true` is the default.
-- In `v1` `useStorage: false` is the default.
+- In `v2` `storage: true` is the default.
+- In `v1` `storage: false` is the default.
 
 :::
 
@@ -46,9 +74,9 @@ Cloud Storage is storage that gets included with your account. The size depends 
 
 When using Cloud Storage, you can use the assets endpoints to get, list, and delete your assets.
 
-```json title="Disable Storage"
+```json title="Enable Storage"
 {
-  "useStorage": true
+  "storage": true
 }
 ```
 
