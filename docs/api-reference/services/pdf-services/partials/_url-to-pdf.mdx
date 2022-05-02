@@ -1,3 +1,5 @@
+import { BaseUrlCodeBlock } from "../../../partials/_base-url.mdx";
+
 Convert any URL to a PDF using a publicly accessible webpage URL or one behind basic authentication or cookie authentication using our authentication mechanisms.
 
 ## Endpoints
@@ -9,9 +11,10 @@ Supports simple requests with only two parameter options.
 - `url` (required)
 - `timeout` (optional)
 
-```html title="GET /url/pdf"
-https://api.cloudlayer.io/v1/url/pdf?url={url}&timeout={timeout}
-```
+<BaseUrlCodeBlock
+  path="/url/pdf?url={url}&timeout={timeout}"
+  title="GET /url/pdf"
+/>
 
 ### POST /url/pdf
 
@@ -26,9 +29,7 @@ Supports all parameters being passed into request as JSON. The following paramet
 Make sure your `Content-Type` gets set to `application/json`, and that you have placed your `X-API-Key` header with your API Key from your account.
 :::
 
-```html title="POST /url/pdf"
-https://api.cloudlayer.io/v1/url/pdf
-```
+<BaseUrlCodeBlock url="/url/pdf" title="POST /url/pdf" />
 
 ```json title="JSON Payload"
 {

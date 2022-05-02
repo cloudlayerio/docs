@@ -1,0 +1,285 @@
+---
+sidebar_position: 2
+slug: /storage
+---
+
+import { BaseUrlCodeBlock } from "./partials/_base-url.mdx";
+
+# Storage
+
+cloudlayer.io supports three different storage types.
+
+- [**No storage**](#no-storage) - All calls must be synchronous, and the response returns the results immediately.
+
+- [**Cloud Storage**](#cloud-storage) - Calls can be synchronous or asynchronous. Your document is stored in your account using the storage included in your subscription.
+
+- [**User Storage**](#user-storage) - All calls must be asynchronous. Configure your own private S3 compatible storage, such as AWS S3, Digital Ocean Spaces, or similar.
+
+Using the cloud storage available as part of your account is the recommended approach unless you have specific needs to use the others.
+
+### `storage`
+
+The bucket to store all the assets.
+
+**Required**
+
+`{ id: <string> } | boolean` _`Default: "true"`_
+
+```json title="No Storage"
+{
+  "storage": "false"
+}
+```
+
+```json title="Cloud Storage"
+{
+  "storage": "true"
+}
+```
+
+```json title="User Storage"
+{
+  "storage": {
+    "id": "123456ab-1234-abcd-1234-123abc12"
+  }
+}
+```
+
+## No Storage
+
+All calls must be synchronous, and the response returns the results immediately.
+
+Using the no storage option is the most limiting option and prevents the usage and integration of other services but may be a good option if you have sensitive documents that you want to ensure are never stored on our servers.
+
+```javascript title="Disable Storage"
+{
+  "storage": false
+}
+```
+
+:::info
+
+- In `v2` `storage: true` is the default.
+- In `v1` `storage: false` is the default.
+
+:::
+
+:::note
+When using `No Storage`, the asset endpoints are disabled.
+:::
+
+## Cloud Storage
+
+Cloud Storage is storage that gets included with your account. The size depends on the plan you selected. Using cloud storage is the preferred method. All new users and calls should prefer this method to integrate tightly with our other services and future offerings.
+
+When using Cloud Storage, you can use the assets endpoints to get, list, and delete your assets.
+
+```json title="Enable Storage"
+{
+  "storage": true
+}
+```
+
+:::info
+The `v2` endpoint has storage enabled by default, so no configuration is required.
+:::
+
+## User Storage
+
+User Storage is the most complex of the storage options. Only supports asynchronous calls. Allows storage of your assets in your own private S3 compatible storage such as AWS S3, Digital Ocean Spaces, Wasabi, Ceph, etc.
+
+The following endpoints are provided to manage user storage:
+
+- [POST /storage](#post-storage)
+- [GET /storage:id](#get-storageid)
+- [GET /storage](#get-storage)
+- [DEL /storage:id](#del-storage)
+
+The storage endpoints let you manage user storage, such as add, get, list, and delete.
+
+To enable user storage, you must use the storage `POST` endpoint to create a user storage configuration. Then pass the id of that configuration into the request.
+
+:::info
+Account information added is encrypted using bank level encryption and is kept secure at all times.
+:::
+
+```json title="Enabled User Storage"
+{
+  "storage": {
+    "id": "123456ab-1234-abcd-1234-123abc12"
+  }
+}
+```
+
+Several endpoints exist to manage User Storage. These endpoints allow adding storage accounts, getting the id of the storage account, and listing storage accounts.
+
+## User Storage Endpoints
+Using a plan that supports user-owned storage, such as the Enterprise plan, you can set up your S3 compatible storage instead of the built-in cloud storage that comes with your account.
+
+:::note
+It is important to remember that not all account types support user storage. If your plan does not support it you will receive an error when attempting to add.
+:::
+
+### POST /storage
+
+This endpoint adds a storage account. By default, it uses AWS. However, you may specify a custom endpoint to support any S3 compatible storage.
+
+[User Storage Params](#user-storage-params) get passed into this endpoint.
+
+<BaseUrlCodeBlock path="/storage" title="POST /storage" />
+
+```json title="Example Request (AWS)"
+{
+  "title": "AWS Storage 1",
+  "region": "us-east-1",
+  "secretAccessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "accessKeyId": "XXXXXXXXXXXXXXXXXXX",
+  "bucket": "mybucket"
+}
+```
+
+```json title="Example Request (Digital Ocean Spaces)"
+{
+  "title": "Digital Ocean Spaces",
+  "region": "us-east-1",
+  "secretAccessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "accessKeyId": "XXXXXXXXXXXXXXXXXXX",
+  "bucket": "mybucket",
+  "endpoint": "https://nyc3.digitaloceanspaces.com"
+}
+```
+
+```json title="Example Response"
+{
+  "status": "success"
+}
+```
+
+Returns `success` or `error`.
+
+### GET /storage:id
+
+This endpoint retrieves the title and id of the storage document by id.
+
+<BaseUrlCodeBlock
+  path="/storage/123456ab-1234-abcd-1234-123abc12"
+  title="GET /storage:id"
+/>
+
+```json title="Example Response"
+{
+  "title": "AWS Storage 1",
+  "id": "123456ab-1234-abcd-1234-123abc12"
+}
+```
+
+If an error occurs or no records found will return a `400` with a message indicating the reason.
+
+### GET /storage
+
+This endpoint retrieves the title and id of all the storage accounts configured for your account.
+
+<BaseUrlCodeBlock path="/storage" title="GET /storage" />
+
+```json title="Example Response"
+[
+  {
+    "title": "AWS Storage 1",
+    "id": "123456ab-1234-abcd-1234-123abc12"
+  },
+  {
+    "title": "Digital Ocean Spaces",
+    "id": "x3df2faf-cv3f-21df-1d1d-3d5da373"
+  }
+]
+```
+
+Returns an empty array `[]` if no results found.
+
+### DEL /storage:id
+
+This endpoint removes the configured storage account by id.
+
+<BaseUrlCodeBlock path="/storage:id" title="DEL /storage:id" />
+
+If an error occurs or no records found will return a `400` with a message indicating the reason.
+
+## User Storage Params
+
+### `title`
+
+The title of the storage credential used for reference must be unique across all storage credentials in your account.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "title": "My AWS Storage" }
+```
+
+### `region`
+
+Region for the AWS region. If using an S3, compatible storage option but not AWS, follow that provider's directions. For example, Digital Ocean specifies to pass in `us-east-1` for all regions.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "region": "us-east-1" }
+```
+
+### `secretAccessKey`
+
+The SecretAccessKey provided by the provider.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "secretAccessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+```
+
+### `accessKeyId`
+
+The AccessKeyId provided by the provider.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "accessKeyId": "XXXXXXXXXXXXXXXXXXX" }
+```
+
+### `bucket`
+
+The bucket to store all the assets.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "bucket": "mybucket" }
+```
+
+### `endpoint`
+
+The bucket to store all the assets.
+
+**Optional**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "endpoint": "https://nyc3.digitaloceanspaces.com" }
+```

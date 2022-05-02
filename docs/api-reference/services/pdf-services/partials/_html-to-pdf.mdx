@@ -1,17 +1,18 @@
-Convert any HTML to an Image using any valid HTML, CSS, Javascript, SASS, etc. As long as the base64 encoded JSON payload is below 10MB in size, we will accept it and convert it.
+import { BaseUrlCodeBlock } from "../../../partials/_base-url.mdx";
+
+Convert any HTML to a PDF using any valid HTML, CSS, Javascript, SASS, etc. As long as the base64 encoded JSON payload is below 10MB in size, we will accept it and convert it.
 
 ## Endpoints
 
-### POST /html/image
+### POST /html/pdf
 
 Supports all parameters being passed into request as JSON. The following parameter types are supported:
 
 - [Html Parameters](#html-parameters)
 - [Base Parameters](#base-parameters)
+- [Pdf Parameters](#pdf-parameters)
 
-```html title="POST /html/image"
-https://api.cloudlayer.io/v1/html/image
-```
+<BaseUrlCodeBlock path="/html/pdf" title="POST /html/pdf" />
 
 ```json title="JSON Payload"
 { "html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4=" }
@@ -31,13 +32,13 @@ https://api.cloudlayer.io/v1/html/image
 
 ```shell title="cURL Example"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/html/image \
+  --url https://api.cloudlayer.io/v1/html/pdf \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
 	"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="
 }' \
---output "google.png"
+--output "google.pdf"
 ```
 
 ```shell title="Wget Example"
@@ -45,8 +46,8 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="}' \
-  - https://api.cloudlayer.io/v1/html/image \
-  -O "google.png"
+  - https://api.cloudlayer.io/v1/html/pdf \
+  -O "google.pdf"
 ```
 
 :::tip

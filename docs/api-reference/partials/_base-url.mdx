@@ -1,0 +1,15 @@
+import CodeBlock from "@theme/CodeBlock";
+
+export const BaseUrl = "https://api.cloudlayer.io/v2";
+
+export const BaseUrlCodeBlock = (props) => {
+  return (
+    <CodeBlock className="language-html" title={props.title}>
+      {`${BaseUrl}${props.path || ''}`}
+    </CodeBlock>
+  );
+};
+
+export const BaseUrlText = (props) => {
+  return (`${BaseUrl}${props.path || ''}`);
+}

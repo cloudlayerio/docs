@@ -16,7 +16,6 @@ const config = {
   organizationName: "cloudlayerio", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
-
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -48,9 +47,27 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "docs-integrations",
+        path: "docs/integrations",
+        routeBasePath: "integrations",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "docs-examples",
         path: "docs/examples",
         routeBasePath: "examples",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docs-changelog",
+        path: "docs/changelog",
+        routeBasePath: "changelog",
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
@@ -59,13 +76,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "cloudlayer.io docs",
+        title: "",
         logo: {
           alt: "cloudlayer.io",
           src: "img/logo.svg",
           width: 32,
           height: 32,
-          href: "https://docs.cloudlayer.io",
+          href: "https://cloudlayer.io",
           target: "_self",
         },
         items: [
@@ -86,18 +103,27 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
+            label: "Integrations",
+            docsPluginId: "docs-integrations",
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
             label: "Examples",
             docsPluginId: "docs-examples",
           },
           {
-            href: "https://cloudlayer.io",
-            label: "cloudlayer.io",
-            position: "right"
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "Changelog",
+            docsPluginId: "docs-changelog",
           },
           {
             href: "https://blog.cloudlayer.io",
             label: "Blog",
-            position: "right"
+            position: "right",
           },
         ],
       },
@@ -154,8 +180,6 @@ const config = {
       },
       colorMode: {
         defaultMode: "dark",
-
-        
       },
       algolia: {
         appId: "CYBU4R0YTU",

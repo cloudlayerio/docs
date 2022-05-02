@@ -1,0 +1,80 @@
+---
+sidebar_position: 2
+slug: /jobs
+---
+
+# Jobs
+
+Every time a service endpoint gets called, a job gets generated. Each job has properties associated with it.
+
+For example, if you are using asynchronous calls and need to check the status of a job, you could use the `GET /jobs:id` endpoint to check the status of the job by id.
+
+The following endpoints are provided for managing jobs:
+
+- [GET /jobs:id](#get-jobs-id)
+- [GET /jobs](#get-jobs)
+
+## Endpoints
+
+### GET /jobs:id {#get-jobs-id}
+
+This Endpoint returns a job by id.
+
+### GET /jobs {#get-jobs}
+
+This Endpoint returns a list of the ten most recent jobs.
+
+## Job Response
+
+### `apiCreditCost`
+
+The API Credit Cost for generating the asset. Cost can vary depending on the request. In most cases, the cost is 1 API Credit Cost. In others, such as batch requests, it's an aggregate of the batch result.
+
+### `apiKeyUsed`
+
+The API Key used to make the request.
+
+
+### `id`
+
+The id of the job.
+
+### `size`
+
+The calculated size of the asset.
+
+Only returns a value for jobs that have a status of `success`.
+
+### `params`
+
+Object tha contains a copy of the parameters passed into the request.
+
+### `processTime`
+
+The calculated time it took to actually process the asset (excludes time spent in request/response).
+
+Only returns a value for jobs that have a status of `success`.
+
+### `status`
+
+The current status of the job. Can be of the following values:
+
+- `pending` - When the job is in progress.
+- `success` - Job has succeeded, and is finished.
+- `error` - Job failed, check the error status property for more info.
+
+### `timestamp`
+
+The Unix timestamp for the request generated.
+
+### `uid`
+
+The user id for the owner of the account.
+
+### `type`
+
+The type of request that was made, such as `url-image`.
+
+### `worker`
+
+The id that generated the asset. Can be useful information for troubleshooting.

@@ -1,3 +1,5 @@
+import { BaseUrlCodeBlock } from "../../../partials/_base-url.mdx";
+
 Convert any URL to an Image using a publicly accessible webpage URL or one behind basic authentication or cookie authentication using our authentication mechanisms.
 
 ## Endpoints
@@ -9,9 +11,10 @@ Supports simple requests with only two parameter options.
 - `url` (required)
 - `timeout` (optional)
 
-```html title="GET /url/image"
-https://api.cloudlayer.io/v1/url/image?url={url}&timeout={timeout}
-```
+<BaseUrlCodeBlock
+  path="/url/image?url={url}&timeout={timeout}"
+  title="GET /url/image"
+/>
 
 ### POST /url/image
 
