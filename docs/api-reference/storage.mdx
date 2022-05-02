@@ -90,10 +90,10 @@ User Storage is the most complex of the storage options. Only supports asynchron
 
 The following endpoints are provided to manage user storage:
 
-- [POST /storages](#post-storages)
-- [GET /storages:id](#get-storageid)
-- [GET /storages](#get-storages)
-- [DEL /storages:id](#del-storages)
+- [POST /storage](#post-storage)
+- [GET /storage:id](#get-storageid)
+- [GET /storage](#get-storage)
+- [DEL /storage:id](#del-storage)
 
 The storage endpoints let you manage user storage, such as add, get, list, and delete.
 
@@ -114,14 +114,19 @@ Account information added is encrypted using bank level encryption and is kept s
 Several endpoints exist to manage User Storage. These endpoints allow adding storage accounts, getting the id of the storage account, and listing storage accounts.
 
 ## User Storage Endpoints
+Using a plan that supports user-owned storage, such as the Enterprise plan, you can set up your S3 compatible storage instead of the built-in cloud storage that comes with your account.
 
-### POST /storages
+:::note
+It is important to remember that not all account types support user storage. If your plan does not support it you will receive an error when attempting to add.
+:::
+
+### POST /storage
 
 This endpoint adds a storage account. By default, it uses AWS. However, you may specify a custom endpoint to support any S3 compatible storage.
 
 [User Storage Params](#user-storage-params) get passed into this endpoint.
 
-<BaseUrlCodeBlock path="/storages" title="POST /storages" />
+<BaseUrlCodeBlock path="/storage" title="POST /storage" />
 
 ```json title="Example Request (AWS)"
 {
@@ -152,13 +157,13 @@ This endpoint adds a storage account. By default, it uses AWS. However, you may 
 
 Returns `success` or `error`.
 
-### GET /storages:id
+### GET /storage:id
 
 This endpoint retrieves the title and id of the storage document by id.
 
 <BaseUrlCodeBlock
-  path="/storages/123456ab-1234-abcd-1234-123abc12"
-  title="GET /storages:id"
+  path="/storage/123456ab-1234-abcd-1234-123abc12"
+  title="GET /storage:id"
 />
 
 ```json title="Example Response"
@@ -170,11 +175,11 @@ This endpoint retrieves the title and id of the storage document by id.
 
 If an error occurs or no records found will return a `400` with a message indicating the reason.
 
-### GET /storages
+### GET /storage
 
 This endpoint retrieves the title and id of all the storage accounts configured for your account.
 
-<BaseUrlCodeBlock path="/storages" title="GET /storages" />
+<BaseUrlCodeBlock path="/storage" title="GET /storage" />
 
 ```json title="Example Response"
 [
@@ -191,11 +196,11 @@ This endpoint retrieves the title and id of all the storage accounts configured 
 
 Returns an empty array `[]` if no results found.
 
-### DEL /storages:id
+### DEL /storage:id
 
 This endpoint removes the configured storage account by id.
 
-<BaseUrlCodeBlock path="/storages:id" title="DEL /storages:id" />
+<BaseUrlCodeBlock path="/storage:id" title="DEL /storage:id" />
 
 If an error occurs or no records found will return a `400` with a message indicating the reason.
 

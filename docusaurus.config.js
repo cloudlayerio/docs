@@ -47,6 +47,15 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "docs-integrations",
+        path: "docs/integrations",
+        routeBasePath: "integrations",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "docs-examples",
         path: "docs/examples",
         routeBasePath: "examples",
@@ -67,13 +76,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "cloudlayer.io docs",
+        title: "",
         logo: {
           alt: "cloudlayer.io",
           src: "img/logo.svg",
           width: 32,
           height: 32,
-          href: "https://docs.cloudlayer.io",
+          href: "https://cloudlayer.io",
           target: "_self",
         },
         items: [
@@ -94,6 +103,13 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
+            label: "Integrations",
+            docsPluginId: "docs-integrations",
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
             label: "Examples",
             docsPluginId: "docs-examples",
           },
@@ -103,11 +119,6 @@ const config = {
             position: "left",
             label: "Changelog",
             docsPluginId: "docs-changelog",
-          },
-          {
-            href: "https://cloudlayer.io",
-            label: "cloudlayer.io",
-            position: "right",
           },
           {
             href: "https://blog.cloudlayer.io",
