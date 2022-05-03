@@ -28,6 +28,18 @@ const config = {
           routeBasePath: "/",
           path: "docs/api-reference",
         },
+
+        pages: {
+          path: "src/pages",
+          routeBasePath: "/",
+          include: ["**/*.{js,jsx,ts,tsx,md,mdx}"],
+          exclude: [
+            "**/_*.{js,jsx,ts,tsx,md,mdx}",
+            "**/_*/**",
+            "**/*.test.{js,jsx,ts,tsx}",
+            "**/__tests__/**",
+          ],
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
