@@ -21,12 +21,15 @@ const config = {
       "@docusaurus/preset-classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        gtag: {
+          trackingID: "G-T5QSJ7Q0XR",
+        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
-          routeBasePath: "/",
-          path: "docs/api-reference",
+          routeBasePath: "/home",
+          path: "docs/home",
         },
 
         pages: {
@@ -47,6 +50,15 @@ const config = {
     ],
   ],
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docs-api",
+        path: "docs/api-reference",
+        routeBasePath: "/",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
     [
       "@docusaurus/plugin-content-docs",
       {
@@ -102,7 +114,14 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
+            label: "Docs",
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
             label: "API",
+            docsPluginId: "docs-api",
           },
           {
             type: "doc",
