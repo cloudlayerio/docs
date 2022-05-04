@@ -46,14 +46,15 @@
 
 
 .navbar__logo {
-  margin-right: 0rem;
+  margin-right: .5rem;
+  margin-top: 2px;
 }
 
 .navbar__title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
-  margin-top: -6px;
-  margin-right: 0rem;
+  margin-top: 0px;
+  margin-right: 1rem;
 }
 
 .navbar__items--right [role=button] {

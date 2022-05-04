@@ -88,13 +88,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "",
+        title: "cloudlayer.io docs",
         logo: {
           alt: "cloudlayer.io",
           src: "img/logo.svg",
           width: 32,
           height: 32,
-          href: "https://cloudlayer.io",
+          href: "https://docs.cloudlayer.io",
           target: "_self",
         },
         items: [
@@ -133,8 +133,8 @@ const config = {
             docsPluginId: "docs-changelog",
           },
           {
-            href: "https://blog.cloudlayer.io",
-            label: "Blog",
+            href: "https://cloudlayer.io",
+            label: "cloudlayer.io",
             position: "right",
           },
         ],
