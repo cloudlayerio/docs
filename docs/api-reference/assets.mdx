@@ -12,3 +12,51 @@ If you do not use [cloud storage](/storage#cloud-storage) and disable it on all 
 :::note
 Legacy accounts do not support cloud storage. If you use a legacy account, you will need to upgrade it to get cloud storage.
 :::
+
+The following endpoints are provided for managing assets:
+
+- [GET /assets:id](#get-assets-id)
+- [GET /assets](#get-assets)
+
+## Endpoints
+
+### GET /assets:id {#get-assets-id}
+
+This Endpoint returns an asset by id.
+
+### GET /assets {#get-assets}
+
+This Endpoint returns a list of the ten most recent jobs.
+
+## Assets Response
+
+### `ext`
+
+The file extension of the asset.
+
+### `id`
+
+The id of the asset.
+
+### `jobId`
+
+The `jobId` that generated the asset.
+
+### `size`
+
+The size of the generated asset.
+
+### `timestamp`
+
+The Unix timestamp when the asset was created.
+
+### `type`
+
+The type of asset, such as `image` or `pdf`, etc.
+
+### `url`
+
+The CDN URL of the asset which can be used publicly.
+:::note
+There is no bandwidth or API cost associated with using the asset from this URL.
+:::
