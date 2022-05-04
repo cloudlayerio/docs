@@ -7,12 +7,6 @@ import { BaseUrlCodeBlock } from "./partials/_base-url.mdx";
 
 # Introduction
 
-<BaseUrlCodeBlock title="API Base URL - v2" />
-
-:::info
-There are some important but slight differences between v1 and v2. In addition, some default behaviors have changed. If you are currently using v1, please read about the changes in the changelog before switching to v2.
-:::
-
 cloudlayer.io is a service that lets you generate PDFs and Images from a Url or Html. In addition, we offer conversion and manipulation services to convert a document to another format, such as a Word Document to Html.
 
 In simple steps:
@@ -21,6 +15,12 @@ In simple steps:
 2. Get your API Key from the Dashboard.
 3. Find the API Endpoint you want to use.
 4. Call the API using your API Key.
+
+<BaseUrlCodeBlock title="API Base URL - v2" />
+
+:::info
+There are some important but slight differences between v1 and v2. In addition, some default behaviors have changed. If you are currently using v1, please read about the changes in the changelog before switching to v2.
+:::
 
 ## Authentication
 
@@ -52,7 +52,9 @@ If everything worked correctly, you should get the following JSON response back.
 { "status": "ok" }
 ```
 
-_<sup>Note: Requests against informational endpoints such as this one do not count against your API Credits.</sup>_
+:::note
+Requests against informational endpoints such as this one do not count against your API Credits, but they follow the API Key rules with credit remaining and rate limits, so they act as a good test.
+:::
 
 ## HTTP Status Codes
 
@@ -70,7 +72,29 @@ _<sup>Note: Requests against informational endpoints such as this one do not cou
 
 ## Webhooks
 
-**_ This feature is coming in the future. _**
+A webhook is an external URL endpoint that can be sent data when a jobs status has changed to `success` or `error`.
+
+Webhooks are especially useful when using async calls, you can send many async calls and then have your external service receive the webhook calls. To keep it simple all webhook calls follow the exact same format of the [job response](/jobs#job-response).
+
+```json Webhook
+{
+  "webhook": "https://<your_webhook_url>"
+}
+```
+
+### Testing Webhooks
+
+An easy way to test a webhook is to use a service like [Webook.Site](https://webhook.site) (not affiliated).
+
+1. Create an endpoint on Webhook.Site by visiting, you will get a unique workspace generated.
+2. Copy the `Your unique URL` using the `Copy to clipboard` button.
+3. In your request add the `webhook` parameter with this url as the value.
+4. Submit the job.
+5. When the job status changes to either `success` or `error` the webhook will receive a response.
+
+:::info
+Webhooks must be https endpoints.
+:::
 
 ## Async & Sync
 
