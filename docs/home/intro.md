@@ -1,10 +1,11 @@
 ---
 sidebar_position: 1
 slug: /
+
 title: Introduction
 ---
 
-Explore our [API](/api), [SDKs](/sdks), [Integrations](/integrations), and [Examples](/examples) to get started using cloudlayer.io.
+Explore our [API](/), [SDKs](/sdks), [Integrations](/integrations), and [Examples](/examples) to get started using cloudlayer.io.
 
 For information on the user interface part of our service, take a look at the sections in the sidebar.
 
