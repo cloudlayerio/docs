@@ -61,6 +61,23 @@ Once a project gets created, it will show up as a card in the `Projects` window.
 
 ![Created Project](/img/created_project.png)
 
+### Add Jobs to Project
+
+In order to add jobs and assets to a project you need to pass in the projectId to the job. Any assets created by that job will automatically be added to the project as well.
+
+![Copy Project Id](/img/project_copy_id.png)
+
+1. Click menu icon on the project in the lower right hand corner of the project card.
+2. Select `Copy Id` from the menu. This will copy the Project Id to your clipboard.
+
+In your job request add the projectId property.
+
+```json title="Add Job to Project Example"
+{
+    "projectId": "N77VCoAVTHHwgmUfCYlD"
+}
+```
+
 ### Project Filtering
 
 When a project has been created a new filter will show up for jobs and assets under the corresponding jobs and assets tabs.

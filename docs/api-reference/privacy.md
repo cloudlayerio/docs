@@ -7,7 +7,7 @@ title: Privacy
 Privacy is important to us and we take every measure possible to ensure that your data is protected.
 
 ## Data Storage
-Data is never stored unless storage options are configured in your account or storage parameters are passed into the request. 
+Data is stored in your accounts cloud storage by default unless storage parameters are passed into the request to disable storage or to you use your own personal storage.
 
 - For synchronous calls, the data gets removed immediately after the request connection is closed.    
 

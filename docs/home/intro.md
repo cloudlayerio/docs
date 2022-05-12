@@ -2,7 +2,7 @@
 sidebar_position: 1
 slug: /
 
-title: Introduction
+title: Getting Started
 ---
 
 Explore our [API](/), [SDKs](/sdks), [Integrations](/integrations), and [Examples](/examples) to get started using cloudlayer.io.
