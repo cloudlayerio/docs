@@ -26,27 +26,25 @@
   font-style: normal;
 }
 
-
 :root {
-  --ifm-color-primary: #7344D0;
-  --ifm-color-primary-dark: #4E279C;
+  --ifm-color-primary: #7344d0;
+  --ifm-color-primary-dark: #4e279c;
   --ifm-color-primary-darker: #412082;
-  --ifm-color-primary-darkest: #2B1555;
-  --ifm-color-primary-light: #896BC6;
-  --ifm-color-primary-lighter: #BCAADE;
-  --ifm-color-primary-lightest: #EEEAF7;
+  --ifm-color-primary-darkest: #2b1555;
+  --ifm-color-primary-light: #896bc6;
+  --ifm-color-primary-lighter: #bcaade;
+  --ifm-color-primary-lightest: #eeeaf7;
   --ifm-navbar-link-color: #fff;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: 'Inter';
-  --ifm-navbar-link-hover-color: #D1C2F0;
-  --ifm-navbar-background-color: #4E279C;
+  --ifm-font-family-base: "Inter";
+  --ifm-navbar-link-hover-color: #d1c2f0;
+  --ifm-navbar-background-color: #4e279c;
   --ifm-navbar-shadow: none;
   --ifm-hr-border-width: 1px;
 }
 
-
 .navbar__logo {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   margin-top: 2px;
 }
 
@@ -57,12 +55,12 @@
   margin-right: 1rem;
 }
 
-.navbar__items--right [role=button] {
-  background: #0E071D;
+.navbar__items--right [role="button"] {
+  background: #0e071d;
 }
 
 .hero {
-  --ifm-hero-background-color: #5E2FBD;
+  --ifm-hero-background-color: #5e2fbd;
 }
 
 .logo {
@@ -80,23 +78,23 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
+html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-html[data-theme='dark'] {
-  --ifm-color-primary: #A486E1;
-  --ifm-color-primary-dark: #8B65D8;
+html[data-theme="dark"] {
+  --ifm-color-primary: #a486e1;
+  --ifm-color-primary-dark: #8b65d8;
   --ifm-font-color-base-inverse: #fff;
-  --ifm-background-color: #0E071D;
-  --ifm-navbar-background-color: #381C6F;
+  --ifm-background-color: #0e071d;
+  --ifm-navbar-background-color: #381c6f;
   --ifm-hr-border-color: #412082;
-  --ifm-toc-border-color: #2B1555;
+  --ifm-toc-border-color: #2b1555;
   /* any other colors you wish to overwrite */
 }
 
-html[data-theme='dark'] .hero {
-  --ifm-hero-background-color: #381C6F;
+html[data-theme="dark"] .hero {
+  --ifm-hero-background-color: #381c6f;
 }
 
 html .footer {
@@ -108,4 +106,31 @@ hr {
   border-bottom-width: 0px;
 }
 
+html[data-theme=light] .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-ColorModeToggle-styles-module {
+  color: lightgray;
+}
 
+html[data-theme=light] .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-ColorModeToggle-styles-module
+  :hover {
+  color: #0e071d;
+}
+
+html[data-theme=dark] .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-ColorModeToggle-styles-module
+  :hover {
+  color: white;
+}
+
+.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-ColorModeToggle-styles-module :hover {
+  background-color: transparent;
+}
+
+p > img {
+  margin: 10px;
+  border: 2px solid #ffffff0d;
+  border-radius: 10px;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
