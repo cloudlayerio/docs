@@ -16,7 +16,7 @@ At its most basic, a URL is the only required parameter to generate a PDF or Ima
 
 ```shell title="cURL - Google Pdf"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/url/pdf \
+  --url https://api.cloudlayer.io/v2/url/pdf \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
@@ -30,7 +30,7 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
-  - https://api.cloudlayer.io/v1/url/pdf \
+  - https://api.cloudlayer.io/v2/url/pdf \
   -O "google.pdf"
 ```
 
@@ -38,7 +38,7 @@ wget --method POST \
 
 ```shell title="cURL - Google PNG"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/url/image \
+  --url https://api.cloudlayer.io/v2/url/image \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
@@ -52,7 +52,7 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
-  - https://api.cloudlayer.io/v1/url/image \
+  - https://api.cloudlayer.io/v2/url/image \
   -O "google.png"
 ```
 
@@ -62,7 +62,7 @@ Some sites have lazy loaded images and other content that is not loaded until th
 
 ```shell title="Autoscroll Example"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/url/image \
+  --url https://api.cloudlayer.io/v2/url/image \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{

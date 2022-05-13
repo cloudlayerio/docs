@@ -51,7 +51,7 @@ Make sure your `Content-Type` gets set to `application/json`, and that you have 
 
 ```shell title="cURL Example"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/url/pdf \
+  --url https://api.cloudlayer.io/v2/url/pdf \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
@@ -65,7 +65,7 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
-  - https://api.cloudlayer.io/v1/url/pdf \
+  - https://api.cloudlayer.io/v2/url/pdf \
   -O "google.pdf"
 ```
 
