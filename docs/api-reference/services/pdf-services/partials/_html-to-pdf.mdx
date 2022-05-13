@@ -32,7 +32,7 @@ Supports all parameters being passed into request as JSON. The following paramet
 
 ```shell title="cURL Example"
 curl --request POST \
-  --url https://api.cloudlayer.io/v1/html/pdf \
+  --url https://api.cloudlayer.io/v2/html/pdf \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --data '{
@@ -46,7 +46,7 @@ wget --method POST \
   --header 'Content-Type: application/json' \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="}' \
-  - https://api.cloudlayer.io/v1/html/pdf \
+  - https://api.cloudlayer.io/v2/html/pdf \
   -O "google.pdf"
 ```
 

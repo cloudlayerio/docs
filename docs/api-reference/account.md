@@ -13,7 +13,7 @@ Get information about your account, such as usage, credits, number of documents 
 Returns a JSON object containing the information about your account. Uses any API Key on your account for authentication.
 
 ```html title="GET /account"
-https://api.cloudlayer.io/v1/account
+https://api.cloudlayer.io/v2/account
 ```
 
 :::tip
