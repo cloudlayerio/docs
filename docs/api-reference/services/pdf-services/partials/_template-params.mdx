@@ -1,0 +1,22 @@
+## Template Parameters
+
+Parameters that exist on Template services.
+
+### Template types
+
+There are two types of template types you can use with template API.
+
+- [Predefined Template](#predefined-template)
+- [Custom Template](#custom-template)
+
+#### Predefined Template
+
+A predefined template is one that is already created, which you choose from our template library and then use by providing the `templateId` parameter.
+
+#### Custom Template
+
+A custom template is one that you create yourself, and pass in through the `template` parameter. When using a custom template you may want to read the [Templating](templating/)
+
+### Request types
+
+When using templates you have a couple of options to choose from on how you send the request. You can use an inline request, where you specify everything in the JSON data, or you can use a multipart request and send the options as JSON, the template as a file, and the data as a file.
