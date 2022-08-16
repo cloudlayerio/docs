@@ -1,22 +1,73 @@
-## Template Parameters
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-Parameters that exist on Template services.
+## Request types
 
-### Template types
+When using templates, you have a couple of options to choose from on how you send the request. You can use an inline request, where you specify everything in the JSON data, or you can use a multipart request and send the options as JSON, the template as a file, and the data as a file.
 
-There are two types of template types you can use with template API.
+- Inline Request
+- Multipart Request
+
+### Inline Request
+
+### Multipart Request
+
+## Template types
+
+There are two template types you can use with the template API.
 
 - [Predefined Template](#predefined-template)
 - [Custom Template](#custom-template)
 
-#### Predefined Template
+### Predefined Template
 
-A predefined template is one that is already created, which you choose from our template library and then use by providing the `templateId` parameter.
+A predefined template is already created, which you choose from the template library and then use by providing the `templateId` parameter.
 
-#### Custom Template
+### Custom Template
 
-A custom template is one that you create yourself, and pass in through the `template` parameter. When using a custom template you may want to read the [Templating](templating/)
+A custom template is one you create yourself and pass in through the `template` parameter. When using a custom template, you may want to read the [Templating](templating/)
 
-### Request types
+## Template Parameters
 
-When using templates you have a couple of options to choose from on how you send the request. You can use an inline request, where you specify everything in the JSON data, or you can use a multipart request and send the options as JSON, the template as a file, and the data as a file.
+Parameters that exist on Template services.
+
+### `template`
+
+The base64 encoded HTML Nunjucks template string. <br/>
+_(Used for custom templates.)_
+
+`string`
+_`Default: ""`_
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html title='Template (Before it gets encoded for illustration purposes)'
+<html>
+  <body>
+    Hello {{name}}!
+  </body>
+</html>
+```
+
+  </TabItem>
+  <TabItem value="base64" label="Base64String">
+
+```text title='HTML base64 encoded'
+PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=
+```
+
+  </TabItem>
+
+</Tabs>
+
+```json title='Inline Request'
+{
+  "template": "PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7bmFtZX0hCiAgPC9ib2R5Pgo8L2h0bWw+",
+  "data": {
+    "name": "Bob"
+  }
+}
+```
+
+
