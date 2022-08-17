@@ -10,6 +10,7 @@ When using templates, you have a couple of options to choose from on how you sen
 
 ### Inline Request
 
+
 ### Multipart Request
 
 ## Template types
@@ -21,17 +22,49 @@ There are two template types you can use with the template API.
 
 ### Predefined Template
 
-A predefined template is already created, which you choose from the template library and then use by providing the `templateId` parameter.
+A predefined template is already created, which you choose from the [template library](https://cloudlayer.io/templates/pdf) use by providing the `templateId` parameter and providing the correct data parameter for the template.
+
+```json title="Example - Predefined Template"
+{
+  "templateId": "professional-invoice-1",
+  "data": "..."
+}
+```
 
 ### Custom Template
 
 A custom template is one you create yourself and pass in through the `template` parameter. When using a custom template, you may want to read the [Templating](templating/)
 
+```json title="Example Custom Template"
+{
+  "template": "PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=",
+  "data": {
+    "name": "Bob"
+  }
+}
+```
+
 ## Template Parameters
 
 Parameters that exist on Template services.
 
+### `templateId`
+**Required** when the [`template`](#template) is not specified.
+
+The string indicating the template to use from the <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF template gallery</a>.
+
+```json title="Example - templateId for Invoice Template"
+{
+  "templateId": "professional-invoice-1",
+  "data": "..."
+}
+```
+:::note
+Data was left out for brevity in this example, to see a full example of data being used take a look at the [data](#data) parameter.
+:::
 ### `template`
+
+**Required** when the [`templateId`](#templateId) is not specified.
 
 The base64 encoded HTML Nunjucks template string. <br/>
 _(Used for custom templates.)_
@@ -61,13 +94,66 @@ PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=
 
 </Tabs>
 
-```json title='Inline Request'
+### `data`
+
+**Required**
+
+The data in JSON format to be used for injecting into the template.
+
+`string`
+_`Default: ""`_
+
+```json title='Sample Data'
 {
-  "template": "PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7bmFtZX0hCiAgPC9ib2R5Pgo8L2h0bWw+",
+  "templateId": "professional-invoice-1",
   "data": {
-    "name": "Bob"
+    "company_name": "Acme Inc 122222.",
+    "logo_href": "https://cloudlayerio.nyc3.digitaloceanspaces.com/cdn/logo1.svg",
+    "phone_number": "555-555-5555",
+    "email": "email@gmail.com",
+    "website": "https://acmeinc.com",
+    "address1": "1711 Bushnell Avenue",
+    "state_province_region": "California",
+    "city": "South Pasadena",
+    "zip_postal_code": "91030",
+    "country": "United States",
+    "currency": "USD",
+    "locale": "en-US",
+    "bill_to_fullname": "Terry G. Brown",
+    "bill_to_address1": "1680 Ralph Drive",
+    "bill_to_state_province_region": "OH",
+    "bill_to_city": "Cleveland",
+    "bill_to_zip_postal_code": "44114",
+    "bill_to_country": "United States",
+    "invoice_no": "000ABC123",
+    "reference_no": "INV-621",
+    "amount": "4562.43",
+    "product_service_title": "Web Design Services",
+    "invoice_date": "27 March, 2020",
+    "due_date": "04/04/2020",
+    "items": [
+      {
+        "title": "Home Page",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
+        "quantity": 40,
+        "unit_price": 150.1
+      },
+      {
+        "title": "Home Page 2",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        "quantity": 40,
+        "unit_price": 150.0
+      },
+      {
+        "title": "Home Page 3",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident.",
+        "quantity": 10,
+        "unit_price": 10.0
+      }
+    ],
+    "notes": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
+    "tax_label": "Tax",
+    "tax_percentage": 6
   }
 }
 ```
-
-
