@@ -10,8 +10,29 @@ When using templates, you have a couple of options to choose from on how you sen
 
 ### Inline Request
 
+An inline request is where you send the entire request as a single JSON string. The template and data are part of the JSON string.
 
 ### Multipart Request
+
+A multipart request is where you send multiple parts of the request—also known as `multipart/form-data. Which can allow for greater flexibility as you can use files or binary blobs to represent the data instead of having to base64 encode or deal with large JSON strings.
+
+The following form fields are required:
+
+- `options` - This is where all of the parameters are defined.
+- `template` - The template (does not need to be base64 encoded when using multipart form data)
+- `data` - The data parameter
+
+```shell title="Example - cURL"
+curl --request POST \
+  --url 'https://api.cloudlayer.io/v2/template/pdf?=' \
+  --header 'Content-Type: multipart/form-data' \
+  --header 'x-api-key: <API-KEY>' \
+  --form 'options={
+	"name": "test",
+}' \
+  --form 'template=@<PATH-TO-TEMPLATE>\template.njk' \
+  --form 'data=@\<PATH-TO-DATA>\sample-data.json'
+```
 
 ## Template types
 
@@ -49,6 +70,7 @@ A custom template is one you create yourself and pass in through the `template` 
 Parameters that exist on Template services.
 
 ### `templateId`
+
 **Required** when the [`template`](#template) is not specified.
 
 The string indicating the template to use from the <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF template gallery</a>.
@@ -59,9 +81,11 @@ The string indicating the template to use from the <a href="https://cloudlayer.i
   "data": "..."
 }
 ```
+
 :::note
 Data was left out for brevity in this example, to see a full example of data being used take a look at the [data](#data) parameter.
 :::
+
 ### `template`
 
 **Required** when the [`templateId`](#templateId) is not specified.
@@ -98,7 +122,7 @@ PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=
 
 **Required**
 
-The data in JSON format to be used for injecting into the template.
+JSON string representing the data for the template.
 
 `string`
 _`Default: ""`_
