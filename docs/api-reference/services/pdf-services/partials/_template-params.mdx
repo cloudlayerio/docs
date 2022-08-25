@@ -129,55 +129,66 @@ _`Default: ""`_
 
 ```json title='Sample Data'
 {
-  "templateId": "professional-invoice-1",
+  "templateId": "professional-invoice",
   "data": {
-    "company_name": "Acme Inc 122222.",
-    "logo_href": "https://cloudlayerio.nyc3.digitaloceanspaces.com/cdn/logo1.svg",
-    "phone_number": "555-555-5555",
-    "email": "email@gmail.com",
-    "website": "https://acmeinc.com",
+    "__auto_calculate": true,
     "address1": "1711 Bushnell Avenue",
-    "state_province_region": "California",
-    "city": "South Pasadena",
-    "zip_postal_code": "91030",
-    "country": "United States",
-    "currency": "USD",
-    "locale": "en-US",
-    "bill_to_fullname": "Terry G. Brown",
+    "amount": null,
     "bill_to_address1": "1680 Ralph Drive",
-    "bill_to_state_province_region": "OH",
     "bill_to_city": "Cleveland",
-    "bill_to_zip_postal_code": "44114",
     "bill_to_country": "United States",
-    "invoice_no": "000ABC123",
-    "reference_no": "INV-621",
-    "amount": "4562.43",
-    "product_service_title": "Web Design Services",
-    "invoice_date": "27 March, 2020",
+    "bill_to_fullname": "Terry G. Brown",
+    "bill_to_state_province_region": "OH",
+    "bill_to_zip_postal_code": "44114",
+    "city": "South Pasadena",
+    "company_name": "Acme Inc.",
+    "country": "United States",
+    "currency": "EUR",
     "due_date": "04/04/2020",
+    "email": "email@gmail.com",
+    "invoice_date": "27 March, 2020",
+    "invoice_no": "000ABC123",
     "items": [
       {
-        "title": "Home Page",
+        "amount": null,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
         "quantity": 40,
+        "title": "Home Page",
         "unit_price": 150.1
       },
       {
-        "title": "Home Page 2",
+        "amount": null,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
         "quantity": 40,
-        "unit_price": 150.0
+        "title": "Home Page 2",
+        "unit_price": 150
       },
       {
-        "title": "Home Page 3",
+        "amount": null,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident.",
         "quantity": 10,
-        "unit_price": 10.0
+        "title": "Home Page 3",
+        "unit_price": 10
       }
     ],
+    "locale": "en-GB",
+    "logo_href": "https://cloudlayerio.nyc3.digitaloceanspaces.com/cdn/logo1.svg",
     "notes": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
+    "phone_number": "555-555-5555",
+    "product_service_title": "Web Design Services",
+    "reference_no": "INV-621",
+    "state_province_region": "California",
+    "subTotal": null,
     "tax_label": "Tax",
-    "tax_percentage": 6
+    "tax_percentage": 6,
+    "terms": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, debitis vitae autem pariatur sunt eligendi error accusantium deserunt dolorem atque beatae quasi eaque repudiandae, ex, quaerat deleniti dignissimos? Cupiditate, explicabo. dolorem atque beatae quasi eaque repudiandae, ex, quaerat deleniti dignissimos? Cupiditate, explicabo.",
+    "totalTax": null,
+    "website": "https://acmeinc.com",
+    "zip_postal_code": "91030"
   }
 }
 ```
+
+:::note
+Any values that are `null` are auto-calculated fields. If you wish to populate those fields instead, set `__auto_calculate: false` and pass data into the fields instead.
+:::

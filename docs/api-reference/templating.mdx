@@ -15,6 +15,22 @@ All templates have the following features:
 - PDF Thumbnail Generation (optional)
 - Webhooks
 
+## Auto Calculation
+
+If you use a predefined template from the gallery that supports auto calculations, you have a couple of options to control the behavior.
+
+### Enabled/Disable
+
+To enable or disable, you need to set the `__auto_calculate` field in the data provided to either `true` or `false`.
+
+:::info
+Disabling auto-calculation can be helpful if you do the calculations on your end and do not want the template to do them.
+:::
+
+### Auto Calculated fields
+
+The values for auto-calculated fields will be any field marked as `null` in the sample data provided. If you set the field `__auto_calculate: false` in the data, it will simply pass the data supplied to it.
+
 ## Template Types
 
 Two types of templates are available: predefined templates you choose from the template gallery or custom templates which are templates that you create yourself using the templating system.
