@@ -7,13 +7,19 @@ slug: /templating
 
 We have a powerful templating system which allows you to use pre-defined templates that you can browse in our <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF template gallery</a> or the <a href="https://cloudlayer.io/templates/image">Image template gallery</a>. Once you have found a template to use, you can pass in the [`templateId`](/template-to-pdf#templateid) and your [`data`](/template-to-pdf#data), and we handle the rest.
 
+In addition, we also support custom templating where you can create your own templates.
+
 All templates have the following features:
 
 - Powerful Nunjucks Templating
 - Fast and Accurate Generation
 - Stored in our global edge-based CDN
-- PDF Thumbnail Generation (optional)
-- Webhooks
+- Thumbnail Generation (optional)
+- Multicultural Support such as currency, time, full UTF-8
+- Auto calculations, if available in the template
+- Local caching for high-speed rendering
+- Built-in Tailwind CSS support
+- All PDF Templates support smart page breaking for printing
 
 ## Auto Calculation
 
@@ -42,14 +48,6 @@ The most accessible and convenient approach is to use one of our professional an
 1. Choose a <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener"> PDF Template</a> or <a href="https://cloudlayer.io/templates/image" target="_blank" rel="noopener">Image Template</a> from the template gallery.
 2. Use the JSON example code offered to you in the template gallery or copy the `templateId` out of it and craft your request.
 3. In the JSON example code, sample data is used as an example to understand what data elements are supported by the template.
-
-All predefined templates will have the following features:
-
-- Multicultural Support such as currency, time, full UTF-8
-- Auto calculations, if available in the template
-- Local caching for high-speed rendering
-- Built-in Tailwind CSS support
-- All PDF Templates support smart page breaking for printing
 
 Read [more about Predefined Templates](/template-to-pdf#predefined-template) in the API documentation.
 
