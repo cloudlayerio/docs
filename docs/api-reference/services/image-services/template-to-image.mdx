@@ -1,0 +1,22 @@
+---
+sidebar_position: 2
+slug: /template-to-image
+title: Template to Image
+---
+
+import TemplateToImage, { toc as TemplateToImageTOC } from "./partials/_template-to-image.mdx";
+import TemplateParams, { toc as TemplateParamsTOC } from "../../partials/_template-params.mdx";
+import BaseParams, { toc as BaseParamsTOC } from "../../partials/_base-params.mdx";
+import ImageParams, { toc as ImageParamsTOC } from "./partials/_image-params.mdx";
+
+<TemplateToImage />
+<TemplateParams />
+<BaseParams />
+<ImageParams />
+
+export const toc = [
+  ...TemplateToImageTOC,
+  ...TemplateParamsTOC,
+  ...BaseParamsTOC,
+  ...ImageParamsTOC,
+];

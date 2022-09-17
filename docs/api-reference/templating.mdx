@@ -1,0 +1,144 @@
+---
+sidebar_position: 1
+slug: /templating
+---
+
+# Templating
+
+We have a powerful templating system which allows you to use pre-defined templates that you can browse in our <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF template gallery</a> or the <a href="https://cloudlayer.io/templates/image">Image template gallery</a>. Once you have found a template to use, you can pass in the [`templateId`](/template-to-pdf#templateid) and your [`data`](/template-to-pdf#data), and we handle the rest.
+
+In addition, we also support custom templating where you can create your own templates.
+
+All templates have the following features:
+
+- Powerful Nunjucks Templating
+- Fast and Accurate Generation
+- Stored in our global edge-based CDN
+- Thumbnail Generation (optional)
+- Multicultural Support such as currency, time, full UTF-8
+- Auto calculations, if available in the template
+- Local caching for high-speed rendering
+- Built-in Tailwind CSS support
+- All PDF Templates support smart page breaking for printing
+
+## Auto Calculation
+
+If you use a predefined template from the gallery that supports auto calculations, you have a couple of options to control the behavior.
+
+### Enabled/Disable
+
+To enable or disable, you need to set the `__auto_calculate` field in the data provided to either `true` or `false`.
+
+:::info
+Disabling auto-calculation can be helpful if you do the calculations on your end and do not want the template to do them.
+:::
+
+### Auto Calculated fields
+
+The values for auto-calculated fields will be any field marked as `null` in the sample data provided. If you set the field `__auto_calculate: false` in the data, it will simply pass the data supplied to it.
+
+## Template Types
+
+Two types of templates are available: predefined templates you choose from the template gallery or custom templates which are templates that you create yourself using the templating system.
+
+### Predefined Templates
+
+The most accessible and convenient approach is to use one of our professional and beautiful-looking predefined templates. Expertly created and curated to offer the best solution.
+
+1. Choose a <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener"> PDF Template</a> or <a href="https://cloudlayer.io/templates/image" target="_blank" rel="noopener">Image Template</a> from the template gallery.
+2. Use the JSON example code offered to you in the template gallery or copy the `templateId` out of it and craft your request.
+3. In the JSON example code, sample data is used as an example to understand what data elements are supported by the template.
+
+Read [more about Predefined Templates](/template-to-pdf#predefined-template) in the API documentation.
+
+### Custom Templates
+
+If you need more flexibility than Predefined template, you can create your own templates using the Nunjucks syntax and pass in your data.
+
+Read [more about Custom Templates](/template-to-pdf#custom-template) in the API documentation.
+
+## Functions
+
+We offer several functions that we have extended Nunjucks with to offer greater flexibility around multicultural support currencies, times, etc.
+
+### `formatCurrency`
+
+Formats the Currency string into the cultural variant.
+
+```javascript
+formatCurrency(locale, currency, amount);
+```
+
+- [`locale`](#formatCurrency-locale)
+- [`currency`](#formatCurrency-currency)
+- [`amount`](#formatCurrency-amount)
+
+```html title="Example - Template"
+<html>
+  <body>
+    {{formatCurrency(locale, currency, amount)}}
+  </body>
+</html>
+```
+
+```json title="Example - Data"
+{
+  "locale": "en-GB",
+  "currency": "EUR",
+  "amount": 150.1
+}
+```
+
+```text title="Result"
+€150.10
+```
+
+#### locale{#formatCurrency-locale}
+
+Unicode locale identifier. For <a href="https://www.w3.org/International/articles/language-tags/#region" target="_blank" rel="noopener">more info on locale identifiers.</a>
+
+#### currency{#formatCurrency-currency}
+
+The currency format identifier. For <a href="https://source.chromium.org/chromium/chromium/deps/icu.git/+/faee8bc70570192d82d2978a71e2a615788597d1:source/data/misc/currencyNumericCodes.txt" target="_blank" rel="noopener">a list of support currencies</a>.
+
+#### amount{#formatCurrency-amount}
+
+The amount in whole numbers or decimal notation.
+
+### `formatDateTime`
+
+Formats the DateTime string into the cultural variant.
+
+```javascript
+formatDateTime(locale, dateTime);
+```
+
+- [`locale`](#formatDateTime-locale)
+- [`dateTime`](#formatDateTime-dateTime)
+
+```html title="Example - Template"
+<html>
+  <body>
+    {{formatDateTime(locale, invoice_date)}}
+  </body>
+</html>
+```
+
+```json title="Example - Data"
+{
+  "locale": "fr_FR",
+  "invoice_date": "27 March, 2020"
+}
+```
+
+```text title="Result"
+27 mars 2020
+```
+
+#### `locale`{#formatDateTime-locale}
+
+Unicode locale identifier. For <a href="https://www.w3.org/International/articles/language-tags/#region" target="_blank" rel="noopener">more info on locale identifiers.</a>
+
+#### `dateTime`{#formatDateTime-dateTime}
+
+The string representation of the date.

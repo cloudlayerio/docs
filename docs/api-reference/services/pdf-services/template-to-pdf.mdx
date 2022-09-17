@@ -1,0 +1,22 @@
+---
+sidebar_position: 2
+slug: /template-to-pdf
+title: Template to PDF
+---
+
+import TemplateToPdf, { toc as TemplateToPdfTOC } from "./partials/_template-to-pdf.mdx";
+import TemplateParams, { toc as TemplateParamsTOC } from "../../partials/_template-params.mdx";
+import BaseParams, { toc as BaseParamsTOC } from "../../partials/_base-params.mdx";
+import PdfParams, { toc as PdfParamsTOC } from "./partials/_pdf-params.mdx";
+
+<TemplateToPdf />
+<TemplateParams />
+<BaseParams />
+<PdfParams />
+
+export const toc = [
+  ...TemplateToPdfTOC,
+  ...TemplateParamsTOC,
+  ...BaseParamsTOC,
+  ...PdfParamsTOC,
+];

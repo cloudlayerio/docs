@@ -1,0 +1,206 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Request types
+
+When using templates, you have a couple of options to choose from on how you send the request. You can use an inline request, where you specify everything in the JSON data, or you can use a multipart request and send the options as JSON, the template as a file, and the data as a file.
+
+- Inline Request
+- Multipart Request
+
+### Inline Request
+
+An inline request is where you send the entire request as a single JSON string. The template and data are part of the JSON string.
+
+### Multipart Request
+
+A multipart request is where you send multiple parts of the request—also known as `multipart/form-data`. Which can allow for greater flexibility as you can use files or binary blobs to represent the data instead of having to base64 encode or deal with large JSON strings.
+
+The following form fields are required:
+
+- `options` - This is where all of the parameters are defined.
+- `template` - The template (does not need to be base64 encoded when using multipart form data)
+- `data` - The data parameter
+
+```shell title="Template to PDF Example - cURL"
+curl --request POST \
+  --url 'https://api.cloudlayer.io/v2/template/pdf?=' \
+  --header 'Content-Type: multipart/form-data' \
+  --header 'x-api-key: <API-KEY>' \
+  --form 'options={
+	"name": "test",
+}' \
+  --form 'template=@<PATH-TO-TEMPLATE>\template.njk' \
+  --form 'data=@\<PATH-TO-DATA>\sample-data.json'
+```
+
+```shell title="Template to Image Example - cURL"
+curl --request POST \
+  --url 'https://api.cloudlayer.io/v2/template/image?=' \
+  --header 'Content-Type: multipart/form-data' \
+  --header 'x-api-key: <API-KEY>' \
+  --form 'options={
+	"name": "test",
+}' \
+  --form 'template=@<PATH-TO-TEMPLATE>\template.njk' \
+  --form 'data=@\<PATH-TO-DATA>\sample-data.json'
+```
+
+## Template types
+
+There are two template types you can use with the template API.
+
+- [Predefined Template](#predefined-template)
+- [Custom Template](#custom-template)
+
+### Predefined Template
+
+A predefined template is already created, which you choose from the [PDF](https://cloudlayer.io/templates/pdf) or [Image](https://cloudlayer.io/templates/image) Template Library use by providing the `templateId` parameter and providing the correct data parameter for the template.
+
+```json title="Example - Predefined Template"
+{
+  "templateId": "<template-id>",
+  "data": "..."
+}
+```
+
+### Custom Template
+
+A custom template is one you create yourself and pass in through the `template` parameter. When using a custom template, you may want to read the [Templating Reference](templating/)
+
+```json title="Example Custom Template"
+{
+  "template": "PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=",
+  "data": {
+    "name": "Bob"
+  }
+}
+```
+
+## Template Parameters
+
+Parameters that exist on Template services.
+
+### `templateId`
+
+**Required** when the [`template`](#template) is not specified.
+
+The string indicating the template to use from the <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF</a> or <a href="https://cloudlayer.io/templates/image" target="_blank" rel="noopener">Image</a> template gallery. In this example it's using the PDF Template, the same format and options are used for Image templates.
+
+```json title="Example - templateId for Invoice PDF Template"
+{
+  "templateId": "professional-invoice",
+  "data": "..."
+}
+```
+
+:::note
+Data was left out for brevity in this example, to see a full example of data being used take a look at the [data](#data) parameter.
+:::
+
+### `template`
+
+**Required** when the [`templateId`](#templateId) is not specified.
+
+The base64 encoded HTML Nunjucks template string. <br/>
+_(Used for custom templates.)_
+
+`string`
+_`Default: ""`_
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html title='Template (Before it gets encoded for illustration purposes)'
+<html>
+  <body>
+    Hello {{name}}!
+  </body>
+</html>
+```
+
+  </TabItem>
+  <TabItem value="base64" label="Base64String">
+
+```text title='HTML base64 encoded'
+PGh0bWw+CiAgPGJvZHk+CiAgICBIZWxsbyB7e25hbWV9fSEKICA8L2JvZHk+CjwvaHRtbD4=
+```
+
+  </TabItem>
+
+</Tabs>
+
+### `data`
+
+**Required**
+
+JSON string representing the data for the template.
+
+`string`
+_`Default: ""`_
+
+```json title='Sample Data'
+{
+  "templateId": "professional-invoice",
+  "data": {
+    "__auto_calculate": true,
+    "address1": "1711 Bushnell Avenue",
+    "amount": null,
+    "bill_to_address1": "1680 Ralph Drive",
+    "bill_to_city": "Cleveland",
+    "bill_to_country": "United States",
+    "bill_to_fullname": "Terry G. Brown",
+    "bill_to_state_province_region": "OH",
+    "bill_to_zip_postal_code": "44114",
+    "city": "South Pasadena",
+    "company_name": "Acme Inc.",
+    "country": "United States",
+    "currency": "EUR",
+    "due_date": "04/04/2020",
+    "email": "email@gmail.com",
+    "invoice_date": "27 March, 2020",
+    "invoice_no": "000ABC123",
+    "items": [
+      {
+        "amount": null,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
+        "quantity": 40,
+        "title": "Home Page",
+        "unit_price": 150.1
+      },
+      {
+        "amount": null,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        "quantity": 40,
+        "title": "Home Page 2",
+        "unit_price": 150
+      },
+      {
+        "amount": null,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident.",
+        "quantity": 10,
+        "title": "Home Page 3",
+        "unit_price": 10
+      }
+    ],
+    "locale": "en-GB",
+    "logo_href": "https://cloudlayerio.nyc3.digitaloceanspaces.com/cdn/logo1.svg",
+    "notes": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Undedeleniti minus blanditiis repudiandae provident, hic laborum eaiure doloremque ipsum, obcaecati, dicta dignissimos optio. Porrodolores voluptatum consequuntur ab doloremque?",
+    "phone_number": "555-555-5555",
+    "product_service_title": "Web Design Services",
+    "reference_no": "INV-621",
+    "state_province_region": "California",
+    "subTotal": null,
+    "tax_label": "Tax",
+    "tax_percentage": 6,
+    "terms": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, debitis vitae autem pariatur sunt eligendi error accusantium deserunt dolorem atque beatae quasi eaque repudiandae, ex, quaerat deleniti dignissimos? Cupiditate, explicabo. dolorem atque beatae quasi eaque repudiandae, ex, quaerat deleniti dignissimos? Cupiditate, explicabo.",
+    "totalTax": null,
+    "website": "https://acmeinc.com",
+    "zip_postal_code": "91030"
+  }
+}
+```
+
+:::note
+Any values that are `null` are auto-calculated fields. If you wish to populate those fields instead, set `__auto_calculate: false` and pass data into the fields instead.
+:::
