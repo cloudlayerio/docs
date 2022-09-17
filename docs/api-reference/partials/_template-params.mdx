@@ -22,9 +22,21 @@ The following form fields are required:
 - `template` - The template (does not need to be base64 encoded when using multipart form data)
 - `data` - The data parameter
 
-```shell title="Example - cURL"
+```shell title="Template to PDF Example - cURL"
 curl --request POST \
   --url 'https://api.cloudlayer.io/v2/template/pdf?=' \
+  --header 'Content-Type: multipart/form-data' \
+  --header 'x-api-key: <API-KEY>' \
+  --form 'options={
+	"name": "test",
+}' \
+  --form 'template=@<PATH-TO-TEMPLATE>\template.njk' \
+  --form 'data=@\<PATH-TO-DATA>\sample-data.json'
+```
+
+```shell title="Template to Image Example - cURL"
+curl --request POST \
+  --url 'https://api.cloudlayer.io/v2/template/image?=' \
   --header 'Content-Type: multipart/form-data' \
   --header 'x-api-key: <API-KEY>' \
   --form 'options={
@@ -43,11 +55,11 @@ There are two template types you can use with the template API.
 
 ### Predefined Template
 
-A predefined template is already created, which you choose from the [template library](https://cloudlayer.io/templates/pdf) use by providing the `templateId` parameter and providing the correct data parameter for the template.
+A predefined template is already created, which you choose from the [PDF](https://cloudlayer.io/templates/pdf) or [Image](https://cloudlayer.io/templates/image) Template Library use by providing the `templateId` parameter and providing the correct data parameter for the template.
 
 ```json title="Example - Predefined Template"
 {
-  "templateId": "professional-invoice-1",
+  "templateId": "<template-id>",
   "data": "..."
 }
 ```
@@ -73,11 +85,11 @@ Parameters that exist on Template services.
 
 **Required** when the [`template`](#template) is not specified.
 
-The string indicating the template to use from the <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF template gallery</a>.
+The string indicating the template to use from the <a href="https://cloudlayer.io/templates/pdf" target="_blank" rel="noopener">PDF</a> or <a href="https://cloudlayer.io/templates/image" target="_blank" rel="noopener">Image</a> template gallery. In this example it's using the PDF Template, the same format and options are used for Image templates.
 
-```json title="Example - templateId for Invoice Template"
+```json title="Example - templateId for Invoice PDF Template"
 {
-  "templateId": "professional-invoice-1",
+  "templateId": "professional-invoice",
   "data": "..."
 }
 ```

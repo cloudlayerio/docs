@@ -55,8 +55,12 @@
   margin-right: 1rem;
 }
 
-.navbar__items--right [role="button"] {
-  background: #0e071d;
+.toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module:hover {
+  background: #7c65aa !important;
+}
+
+.lightToggleIcon_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+  color: #fff;
 }
 
 .hero {
