@@ -17,4 +17,4 @@ cloudlayer.io is a document and asset generation service. Using our service, you
 
 ### Why is this useful?
 
-Generating dynamic content in large quantities is very difficult to accomplish. Using our service, you can use one of our pre-build templates, and just pass your data in, an existing website or pass in HTML to create your content. By manipulating the content or data on each request, every asset generated will get built as intended with minimal effort.
+Generating dynamic content in large quantities is very difficult to accomplish. Using our service, you can use one of our pre-built templates, and just pass your data in, an existing website or pass in HTML to create your content. By manipulating the content or data on each request, every asset generated will get built as intended with minimal effort.
