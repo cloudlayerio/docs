@@ -2,19 +2,6 @@
 
 Parameters that exist on **URL** services.
 
-### `url`
-
-Source URL to use for generating the content.
-
-**Required**
-
-`string`
-_`Default: ""`_
-
-```json
-{ "url": "http://google.com" }
-```
-
 ### `authentication`
 
 Provide credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (Basic Auth).
@@ -23,42 +10,6 @@ Provide credentials for [HTTP authentication](https://developer.mozilla.org/en-U
 {
   "authentication": {
     "username": "bob",
-    "password": "abc123"
-  }
-}
-```
-
-#### `username`
-
-The username for authenticating. Username and Password are both required.
-
-**Required**
-
-`string`
-_`Default: ""`_
-
-```json
-{
-  "authentication": {
-    "username": "bob",
-    "password": "..."
-  }
-}
-```
-
-#### `password`
-
-The password for authenticating. Username and Password are both required.
-
-**Required**
-
-`string`
-_`Default: ""`_
-
-```json
-{
-  "authentication": {
-    "username": "...",
     "password": "abc123"
   }
 }
@@ -250,6 +201,7 @@ Controls whether or not a cookie is sent with cross-origin requests.
 _`Default: <null>`_
 
 Values
+
 - `Strict`
 - `Lax`
 
@@ -262,5 +214,54 @@ Values
       "sameSite": "Strict"
     }
   ]
+}
+```
+
+### `url`
+
+Source URL to use for generating the content.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{ "url": "http://google.com" }
+```
+
+#### `username`
+
+The username for authenticating. Username and Password are both required.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "authentication": {
+    "username": "bob",
+    "password": "..."
+  }
+}
+```
+
+#### `password`
+
+The password for authenticating. Username and Password are both required.
+
+**Required**
+
+`string`
+_`Default: ""`_
+
+```json
+{
+  "authentication": {
+    "username": "...",
+    "password": "abc123"
+  }
 }
 ```
