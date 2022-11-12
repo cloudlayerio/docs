@@ -1,2 +1,47 @@
+## Image Parameters
 
+Parameters that exist on all image service endpoints.
 
+### `imageType`
+
+string _Default: "png"_
+
+Type of image to generate for the preview.
+
+Must be one of the following:
+
+- `png`
+- `jpg`
+- `webp`
+
+```json
+{
+  "imageType": "webp"
+}
+```
+
+### `transparent`
+
+boolean _Default: false_
+
+Either `true` or `false` to indicate if the background should be transparent.
+
+_Note: Has no effect if the image type does not support transparency._
+
+```json
+{
+  "transparent": true
+}
+```
+
+### `trim`
+
+boolean _Default: false_
+
+Either `true` or `false` to indicate if whitespace around the image should be trimmed.
+
+```json
+{
+  "trim": true
+}
+```

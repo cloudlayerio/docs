@@ -2,33 +2,15 @@
 
 Parameters that exist on **all** services.
 
-### `waitUntil`
+### `autoScroll`
 
-When to consider the navigation has been completed and begin the conversion.
+Will auto-scroll the page down to the very end. Helpful in forcing lazy-loaded content to load.
 
-`string`
-_`Default: "networkidle2"`_
-
-#### Accepted Values
-
-- `load` - consider navigation to be finished when the `load` event is fired.
-- `domcontentloaded` - consider navigation to be finsihed when the `DOMContentLoaded` event is fired.
-- `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least `500` ms.
-- `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least `500' ms.
+`boolean`
+_`Default: false`_
 
 ```json
-{ "waitUntil": "load" }
-```
-
-### `timeout`
-
-Amount of time that Chrome is allowed to run. If exceeded, your job will terminate.
-
-`number`
-_`Default: 30000ms`_
-
-```json
-{ "timeout": 30000 }
+{ "autoScroll": true }
 ```
 
 ### `delay`
@@ -42,17 +24,6 @@ _`Default: 0ms`_
 { "delay": 1000 }
 ```
 
-### `autoScroll`
-
-Will auto-scroll the page down to the very end. Helpful in forcing lazy-loaded content to load.
-
-`boolean`
-_`Default: false`_
-
-```json
-{ "autoScroll": true }
-```
-
 ### `filename`
 
 If used with the `inline: false`, will set the `Content-Disposition` filename so that the downloaded file will assign to this value in the user's browser. For `inline: true`, it has no effect.
@@ -62,6 +33,38 @@ _`Default: ""`_
 
 ```json
 { "filename": "filename.ext" }
+```
+
+### `height / width`
+
+#### `height`
+
+Paper height. Must be supported type of [units](#units) or number.
+
+`string|number`
+_`Default: <null>`_
+
+```json
+{ "height": 100 }
+```
+
+```json
+{ "height": "1.25in" }
+```
+
+#### `width`
+
+Paper width. Must be supported type of [units](#units) or number.
+
+`string|number`
+_`Default: <null>`_
+
+```json
+{ "width": 100 }
+```
+
+```json
+{ "width": "1.25in" }
 ```
 
 ### `inline`
@@ -75,7 +78,30 @@ _`Default: false`_
 { "inline": true }
 ```
 
+### `landscape`
+
+Paper orientation, false sets it to portrait and true to landscape.
+
+`boolean`
+_`Default: false_
+
+```json
+{ "landscape": true }
+```
+
+### `preferCSSPageSize`
+
+Give any CSS `@page` size declared in the page priority over what is declared in [width](#width) and [height](#height) or [format](#format) options.
+
+`boolean`
+_`Default: false`_
+
+```json
+{ "preferCSSPageSize": true }
+```
+
 ### `projectId`
+
 The project's id you would like the job and any assets the job generates to be a member.
 
 `string`
@@ -83,36 +109,6 @@ _`Default: ""`_
 
 ```json
 { "projectId": "N77VCoAVTHHwgmUfCYlD" }
-```
-
-### `viewPort`
-
-Set the Viewport of the page before navigation.
-
-```json
-{
-  "viewPort": {
-    "width": 1024,
-    "height": 768,
-    "deviceScaleFactor": 2
-  }
-}
-```
-
-#### `width` {#viewport-width}
-
-Page width in pixels only.
-**Required**
-
-`number`
-_`Default: <null>`_
-
-```json
-{
-  "viewPort": {
-    "width": 1024
-  }
-}
 ```
 
 #### `height` {#viewport-height}
@@ -199,6 +195,28 @@ _`Default: false`_
 }
 ```
 
+### `scale`
+
+Scale of the webpage rendering. Must be between 0.1 and 2.
+
+`number`
+_`Default: 0`_
+
+```json
+{ "scale": 0.5 }
+```
+
+### `timeout`
+
+Amount of time that Chrome is allowed to run. If exceeded, your job will terminate.
+
+`number`
+_`Default: 30000ms`_
+
+```json
+{ "timeout": 30000 }
+```
+
 ### `timeZone`
 
 Changes the timezone of the page. See [ICU's metaZones.txt](https://source.chromium.org/chromium/chromium/deps/icu.git/+/faee8bc70570192d82d2978a71e2a615788597d1:source/data/misc/metaZones.txt) for a list of supported timezone IDs.
@@ -208,6 +226,36 @@ _`Default: <null>`_
 
 ```json
 { "timeZone": "Europe/Rome" }
+```
+
+### `viewPort`
+
+Set the Viewport of the page before navigation.
+
+```json
+{
+  "viewPort": {
+    "width": 1024,
+    "height": 768,
+    "deviceScaleFactor": 2
+  }
+}
+```
+
+#### `width` {#viewport-width}
+
+Page width in pixels only.
+**Required**
+
+`number`
+_`Default: <null>`_
+
+```json
+{
+  "viewPort": {
+    "width": 1024
+  }
+}
 ```
 
 ### `waitForSelector`
@@ -227,6 +275,24 @@ _`Default: <null>`_
     "selector": "img"
   }
 }
+```
+
+### `waitUntil`
+
+When to consider the navigation has been completed and begin the conversion.
+
+`string`
+_`Default: "networkidle2"`_
+
+#### Accepted Values
+
+- `load` - consider navigation to be finished when the `load` event is fired.
+- `domcontentloaded` - consider navigation to be finsihed when the `DOMContentLoaded` event is fired.
+- `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least `500` ms.
+- `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least `500' ms.
+
+```json
+{ "waitUntil": "load" }
 ```
 
 #### `options`
@@ -298,67 +364,4 @@ _`Default: 30000`_
     }
   }
 }
-```
-
-### `preferCSSPageSize`
-
-Give any CSS `@page` size declared in the page priority over what is declared in [width](#width) and [height](#height) or [format](#format) options.
-
-`boolean`
-_`Default: false`_
-
-```json
-{ "preferCSSPageSize": true }
-```
-
-### `scale`
-
-Scale of the webpage rendering. Must be between 0.1 and 2.
-
-`number`
-_`Default: 0`_
-
-```json
-{ "scale": 0.5 }
-```
-
-### `height`
-
-Paper height. Must be supported type of [units](#units) or number.
-
-`string|number`
-_`Default: <null>`_
-
-```json
-{ "height": 100 }
-```
-
-```json
-{ "height": "1.25in" }
-```
-
-### `width`
-
-Paper width. Must be supported type of [units](#units) or number.
-
-`string|number`
-_`Default: <null>`_
-
-```json
-{ "width": 100 }
-```
-
-```json
-{ "width": "1.25in" }
-```
-
-### `landscape`
-
-Paper orientation, false sets it to portrait and true to landscape.
-
-`boolean`
-_`Default: false_
-
-```json
-{ "landscape": true }
 ```
