@@ -55,6 +55,7 @@ const config = {
       {
         id: "docs-api",
         path: "docs/api-reference",
+        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
         routeBasePath: "/",
         sidebarPath: require.resolve("./sidebars.js"),
       },
@@ -64,6 +65,7 @@ const config = {
       {
         id: "docs-sdks",
         path: "docs/sdks",
+        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
         routeBasePath: "sdks",
         sidebarPath: require.resolve("./sidebars.js"),
       },
@@ -73,6 +75,7 @@ const config = {
       {
         id: "docs-integrations",
         path: "docs/integrations",
+        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
         routeBasePath: "integrations",
         sidebarPath: require.resolve("./sidebars.js"),
       },
@@ -82,6 +85,7 @@ const config = {
       {
         id: "docs-examples",
         path: "docs/examples",
+        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
         routeBasePath: "examples",
         sidebarPath: require.resolve("./sidebars.js"),
       },
