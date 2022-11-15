@@ -4,6 +4,14 @@ slug: /
 title: Introduction
 ---
 
+<head>
+  <title>Examples | Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="Here are some examples to get you started using the cloudlayer.io document generation service."
+  />
+</head>
+
 # Examples
 
 To help you understand and make it easier to start integrating with our service, we have compiled a set of examples to get you going.

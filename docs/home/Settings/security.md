@@ -5,6 +5,14 @@ slug: /settings/security
 title: Security
 ---
 
+<head>
+  <title>Security | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 The security section is where you can control the security of your account.
 
 ## Two Factor Authentication

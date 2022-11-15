@@ -5,6 +5,14 @@ slug: /
 
 # Integrations
 
+<head>
+  <title>Integrations | Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a document generation platform that offers many no-code integrations such as Zapier and Integrately."
+  />
+</head>
+
 We support different forms of integration for different types of users. We support no-code integrations and fully custom integrations using our REST-based API.
 
 ## No Code

@@ -4,19 +4,30 @@ slug: /settings/teams
 title: Team
 ---
 
+<head>
+  <title>Team | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 Team is where you control who will have access to your jobs and assets. You can create a team by inviting users. The user will need to have a cloudlayer.io account before being invited.
+
 ## Owner
 
 ![Team Settings](/img/settings_team.png)
 
 ### Inviting Members
-When you invite someone to your team they will show up under `My Team` with a status of `Pending`. 
+
+When you invite someone to your team they will show up under `My Team` with a status of `Pending`.
 
 ![Inviting Members](/img/settings_team_myteam_invite.png)
 
 Once the user accepts the invite the status will change to `accepted`.
 
 ### Removing Members
+
 Once a user has accepted, you will get the option to remove them from your team.
 
 ![Remove Member](/img/settings_team_myteam_remove.png)
@@ -31,7 +42,8 @@ On removal the user will be automatically removed from any projects they belong 
 ## Member
 
 ### Accepting Invite
-When you have been invited to be part of someones team it will show up in the `Team Membership` section.  There will be two buttons, `Accept`, and `Reject`.
+
+When you have been invited to be part of someones team it will show up in the `Team Membership` section. There will be two buttons, `Accept`, and `Reject`.
 
 ![Pending Invite](/img/settings_team_member_invite.png)
 

@@ -5,6 +5,14 @@ slug: /assets
 title: Assets
 ---
 
+<head>
+  <title>Assets | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 
 For more information on assets, take a look at the [Assets API Reference](/assets).
 

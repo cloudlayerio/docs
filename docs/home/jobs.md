@@ -5,6 +5,14 @@ slug: /jobs
 title: Jobs
 ---
 
+<head>
+  <title>Jobs | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 For more information on jobs, take a look at the [Jobs API Reference](/jobs).
 
 ## Jobs List

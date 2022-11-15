@@ -4,6 +4,14 @@ slug: /projects
 title: Projects
 ---
 
+<head>
+  <title>Projects | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 Projects can be used to organize your jobs and assets. You can also share your your projects with other cloudlayer.io users to callaborate and share your jobs and assets with others.
 
 ## Using a Project
