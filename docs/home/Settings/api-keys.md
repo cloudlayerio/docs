@@ -5,6 +5,14 @@ slug: /settings/api-keys
 title: API Keys
 ---
 
+<head>
+  <title>API Keys | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 The API Keys section is where you access and manager all of your API Keys.
 
 ## Copy API Key

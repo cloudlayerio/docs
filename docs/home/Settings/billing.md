@@ -5,6 +5,14 @@ slug: /settings/billing
 title: Billing
 ---
 
+<head>
+  <title>Billing | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 The billing section is where all the information related to billing is managed. This is the information you would like to show up on invoices, and receipts.
 
 This is also where you manage your subscription, change your plan, and view your invoices.

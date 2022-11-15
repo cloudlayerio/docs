@@ -4,6 +4,15 @@ slug: /privacy
 title: Privacy
 ---
 
+<head>
+  <title>Privacy | Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
+
 Privacy is important to us and we take every measure possible to ensure that your data is protected.
 
 ## Data Storage

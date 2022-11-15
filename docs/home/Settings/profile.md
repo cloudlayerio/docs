@@ -5,6 +5,14 @@ slug: /settings/profile
 title: Profile
 ---
 
+<head>
+  <title>Profile | Application Docs - Document Generation Service</title>
+  <meta
+    name="description"
+    content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
+  />
+</head>
+
 The profile screen contains your personal information. The info in this screen is not used for anything other than internal application references to make the app more personalized.
 
 ![Profile Settings](/img/settings_profile.png)
