@@ -1,0 +1,13 @@
+---
+sidebar_position: 9995
+---
+
+# November 28, 2022
+
+## New Features
+
+- Added `Pending` filter to the Jobs filters.
+
+## Known Issues
+
+- When a job has a timeout exception, the job will remain in `Pending` status. We are working to resolve this issue. The job should be in an error state with details about the timeout. The `Pending` filter was added to the Jobs filters to help you track these jobs.
