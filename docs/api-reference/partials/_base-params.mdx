@@ -35,6 +35,102 @@ _`Default: ""`_
 { "filename": "filename.ext" }
 ```
 
+### `generatePreview`
+
+Generates an image preview (thumbnail) of the image or first page of the PDF document. Storage must be enabled.
+
+_All parameters are optional, if you pass in `true` to generatePreview instead of options it will use defaults._
+
+```json
+{
+  "width": "600",
+  "height": "776",
+  "type": "webp",
+  "quality": "high"
+}
+```
+
+#### `height` {#generatePreview-height}
+
+Height of the image to generate for the preview
+
+number _Optional - Either width or height must be provided. If maintainAspectRatio is being used, you may specify either one or the other._
+
+```json
+ "height": "600"
+```
+
+#### `width` {#generatePreview-width}
+
+Width of the image to generate for the preview
+
+number _Optional - Either width or height must be provided. If maintainAspectRatio is being used, you may specify either one or the other._
+
+```json
+{
+  "width": "300"
+}
+```
+
+### `type` {#generatePreview-type}
+
+_Optional_
+
+string _Default: "webp"_
+
+Type of image to generate for the preview.
+
+Must be one of the following:
+
+- `png`
+- `jpg`
+- `webp`
+
+```json
+{
+  "type": "webp"
+}
+```
+
+### `maintainAspectRatio` {#generatePreview-maintainAspectRatio}
+
+boolean _Default: true_
+
+Either `true` or `false` to indicate if the image generated should maintain aspect ratio based on width/height.
+
+_Can result in a blurry and skewed image if the aspect ratio is not maintained_
+
+```json
+{
+  "maintainAspectRatio": true
+}
+```
+
+### `quality` {#generatePreview-quality}
+
+string _Default: ""_
+
+**Required**
+
+Specifies the quality of the generated preview, has no default and must be specified if defining custom generatePreview options.
+
+Must be one of the following:
+
+- `low`
+- `medium`
+- `high`
+
+```json
+{
+  "quality": "medium"
+}
+```
+
+:::info
+Generating a preview can add significant processing time depending on the quality and size of the preview image and PDF document. It's important to balance quality and rendering time.
+:::
+
+
 ### `height / width`
 
 #### `height`
