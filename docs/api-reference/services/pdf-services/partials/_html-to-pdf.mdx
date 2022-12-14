@@ -38,7 +38,7 @@ curl --request POST \
   --data '{
 	"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="
 }' \
---output "google.pdf"
+--output "google.json"
 ```
 
 ```shell title="Wget Example"
@@ -47,7 +47,7 @@ wget --method POST \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="}' \
   - https://api.cloudlayer.io/v2/html/pdf \
-  -O "google.pdf"
+  -O "google.json"
 ```
 
 :::tip

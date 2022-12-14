@@ -71,10 +71,10 @@ var rsp = await manager.UrlToPdf(new UrlToPdf
 
 The `rsp` is the [ReturnResponse](https://github.com/cloudlayerio/cloudlayerio-dotnet/blob/main/cloudlayerio-dotnet/responses/ReturnResponse.cs) type and will contain the `Stream` and several other properties, along with a helper method `SaveToFilesystem`. This method is a convenient method to make it easier to save the stream results to local storage.
 
-### Save PDF to Local Storage
+### Save Response to Local Storage
 
 ```csharp
-await rsp.SaveToFileSystem("C:\myfile.pdf");
+await rsp.SaveToFileSystem("C:\response.json");
 ```
 
 You, of course, can access the `Stream` property yourself and write your storage code that suits your needs.
