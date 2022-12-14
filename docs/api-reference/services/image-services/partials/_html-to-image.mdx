@@ -37,7 +37,7 @@ curl --request POST \
   --data '{
 	"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="
 }' \
---output "google.png"
+--output "response.json"
 ```
 
 ```shell title="Wget Example"
@@ -46,7 +46,7 @@ wget --method POST \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"html": "PGh0bWw+PGJvZHk+PGgxPkhlbGxvIHdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4="}' \
   - https://api.cloudlayer.io/v2/html/image \
-  -O "google.png"
+  -O "response.json"
 ```
 
 :::tip

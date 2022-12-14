@@ -30,7 +30,7 @@ curl --request POST \
   --data '{
     "url": "https://google.com"
 }' \
---output "google.pdf"
+--output "response.json"
 ```
 
 ```shell title="Wget - Google Pdf"
@@ -39,7 +39,7 @@ wget --method POST \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
   - https://api.cloudlayer.io/v2/url/pdf \
-  -O "google.pdf"
+  -O "response.json"
 ```
 
 ## Image Example
@@ -52,7 +52,7 @@ curl --request POST \
   --data '{
     "url": "https://google.com"
 }' \
---output "google.png"
+--output "response.json"
 ```
 
 ```shell title="Wget - Google PNG"
@@ -61,7 +61,7 @@ wget --method POST \
   --header 'x-api-key: <YOUR-API-KEY>' \
   --body-data '{"url": "https://google.com"}' \
   - https://api.cloudlayer.io/v2/url/image \
-  -O "google.png"
+  -O "response.json"
 ```
 
 ## Autoscroll
