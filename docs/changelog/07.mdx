@@ -1,0 +1,39 @@
+---
+sidebar_position: 9993
+---
+
+# February, 2023
+
+## Features
+
+- **Template Editor**
+  - We now have our own template editor that allows you to create your own custom templates. You can clone an existing public template or create your own from scratch.
+  - Quick Preview window allows for you to see real time changes to your template, with auto scaling, manual scaling, margin preview, and more.
+  - PDF templates
+    - All PDF Format types are supported
+    - HiFi and Regular DPI
+    - Landscape / Portrait Layouts
+  - Image templates
+    - Support for all PDF Formats
+    - Margin Preview in Quick Preview Window
+    - Transparent Images
+    - Image Trimming
+  - Live Updates without refresh (works for most templates, can be disabled for more complex ones).
+  - Option configuratator in editor for changing document properties.
+  - Generate PDFs and Images directly in the editor
+- **Reusable User Templates**
+  - With the support of the template editor we have added the ability to store and use user templates. All user templates are prefixed with a `u-` prefix and are private to your account.
+  - Unlimited user templates for all accounts
+  - We show a preview of your template in our UI to help visualize your template for quick access.
+  - User templates works with projects
+- **New Projects Interface**
+  - We have improved how projects work within the UI.
+  - Project filtering is now supported across all areas of the application and you can now filter documents, jobs, and templates by project.
+- **Template Caching**
+  - We now cache your template on our backend for a period of time. Edits to the template are immediately updated in the cache. This allows templates to render even quicker than before.
+  - User templates, and public templates are cached.
+
+## Fixes
+
+- You can now change your email address, a dialog box will appear explaining what will happen. This can be used to transfer ownership of your account to another, or change your own account to another email address.
+- Legacy accounts were being filtered out of backend cache which was causing issues with their renewals and other UI glitches. This has been fixed, and legacy accounts should not see this issue again.
