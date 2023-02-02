@@ -32,6 +32,17 @@ sidebar_position: 9993
 - **Template Caching**
   - We now cache your template on our backend for a period of time. Edits to the template are immediately updated in the cache. This allows templates to render even quicker than before.
   - User templates, and public templates are cached.
+- **Date Filtering Updates**
+  - Date filtering has been redone to be more useful. We have changed all the filters to now be the following:
+    - Any time (this is still realtime, we just renamed it)
+    - Yesterday
+    - Two days ago
+    - Older than a week
+    - Older than a month
+    - Older than 6 months
+    - Older than a year
+- **Two Factor Authentication Improvements**
+  - The original time window for 2-factor was 15 seconds, which did not match most authentication apps and the window was too small. This has been updated so that the window now matches all authentication apps, and it now allows a grace period for the previous code. This should alleviate the issue where your entering a code that just expired.
 
 ## Fixes
 
