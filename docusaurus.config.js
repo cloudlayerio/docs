@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Docs",
   tagline: "Developer documentation, API Reference, SDKs and Examples",
-  url: "https://docs.cloudlayer.io",
+  url: "https://cloudlayer.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -63,30 +63,10 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "docs-sdks",
-        path: "docs/sdks",
+        id: "docs-user-guide",
+        path: "docs/user-guide",
         editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
-        routeBasePath: "sdks",
-        sidebarPath: require.resolve("./sidebars.js"),
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "docs-integrations",
-        path: "docs/integrations",
-        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
-        routeBasePath: "integrations",
-        sidebarPath: require.resolve("./sidebars.js"),
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "docs-examples",
-        path: "docs/examples",
-        editUrl: "https://github.com/cloudlayerio/docs/edit/main/",
-        routeBasePath: "examples",
+        routeBasePath: "/user-guide",
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
@@ -104,13 +84,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "cloudlayer.io docs",
+        title: "cloudlayer.io",
         logo: {
           alt: "cloudlayer.io",
           src: "img/logo.svg",
           width: 32,
           height: 32,
-          href: "https://docs.cloudlayer.io",
+          href: "https://cloudlayer.io",
           target: "_self",
         },
         items: [
@@ -118,35 +98,21 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Docs",
+            label: "Home",
           },
           {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "API",
+            label: "API Reference",
             docsPluginId: "docs-api",
           },
           {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "SDKs",
-            docsPluginId: "docs-sdks",
-          },
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Integrations",
-            docsPluginId: "docs-integrations",
-          },
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Examples",
-            docsPluginId: "docs-examples",
+            label: "User Guide",
+            docsPluginId: "docs-user-guide",
           },
           {
             type: "doc",
@@ -155,18 +121,13 @@ const config = {
             label: "Changelog",
             docsPluginId: "docs-changelog",
           },
-          {
-            href: "https://cloudlayer.io",
-            label: "cloudlayer.io",
-            position: "right",
-          },
         ],
       },
       footer: {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Home",
             items: [
               {
                 label: "API Reference",

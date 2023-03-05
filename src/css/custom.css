@@ -43,6 +43,34 @@
   --ifm-hr-border-width: 1px;
 }
 
+html[data-theme="dark"]  .card {
+    background: #26194D;
+    border: 1px solid #302061;
+}
+
+html[data-theme="light"]  .card {
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+}
+
+html[data-theme="light"] .card .button-group a {
+    background: #7344D0;
+    border: 1px solid #7344D0;
+    color: #fff;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] .card .button-group a {
+    background: #381C6F;
+    border: 1px solid #4E279C;
+    color: #F3F4F6;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] .card .button-group a:hover {
+    background: #4E279C;
+}
+
 .navbar__logo {
   margin-right: 0.5rem;
   margin-top: 2px;

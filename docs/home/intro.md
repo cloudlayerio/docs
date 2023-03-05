@@ -2,27 +2,37 @@
 sidebar_position: 1
 slug: /
 
-title: Getting Started
+title: Introduction
 ---
 
 <head>
-  <title>Getting Started | Application Docs - Document Generation Service</title>
+  <title>Application Docs - Document Generation Service</title>
   <meta
     name="description"
     content="cloudlayer.io is a service for helping you automate your document generation processes using our PDF Generation and Image Generation services."
   />
 </head>
 
-Explore our [API](/), [SDKs](/sdks), [Integrations](/integrations), and [Examples](/examples) to get started using cloudlayer.io.
+TODO
+- Explanation of what the service is and what it does
+- Brief history/background of the service
+- Explanation of the target audience and intended users
 
-For information on the user interface part of our service, take a look at the sections in the sidebar.
+## Key Features
+TODO
+- Overview of the key features and capabilities of the product or service
+- Explanation of how service can benefit users
 
-## Some Common Questions
+## Technical Overview
+TODO
+- Explanation of how to get started using the product or service
+- Overview of any pre-requisites or requirements
 
-### What is cloudlayer.io?
+## API Overview
+TODO
+- Explanation of the purpose and capabilities of the API
+- Explanation of the API design principles
+- Overview of the API endpoints and functionality
 
-cloudlayer.io is a document and asset generation service. Using our service, you can generate PDFs and Images dynamically using either a no-code integration like Zapier, one of our ready-to-use SDKs, or the REST-based API.
-
-### Why is this useful?
-
-Generating dynamic content in large quantities is very difficult to accomplish. Using our service, you can use one of our pre-built templates, and just pass your data in, an existing website or pass in HTML to create your content. By manipulating the content or data on each request, every asset generated will get built as intended with minimal effort.
+## Additional Resources
+TODO
