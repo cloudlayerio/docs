@@ -43,10 +43,10 @@ _All parameters are optional, if you pass in `true` to generatePreview instead o
 
 ```json
 {
-  "width": "600",
-  "height": "776",
+  "width": 600,
+  "height": 776,
   "type": "webp",
-  "quality": "high"
+  "quality": 75
 }
 ```
 
@@ -57,7 +57,7 @@ Height of the image to generate for the preview
 number _Optional - Either width or height must be provided. If maintainAspectRatio is being used, you may specify either one or the other._
 
 ```json
- "height": "600"
+ "height": 600
 ```
 
 #### `width` {#generatePreview-width}
@@ -68,7 +68,7 @@ number _Optional - Either width or height must be provided. If maintainAspectRat
 
 ```json
 {
-  "width": "300"
+  "width": 300
 }
 ```
 
@@ -108,21 +108,17 @@ _Can result in a blurry and skewed image if the aspect ratio is not maintained_
 
 ### `quality` {#generatePreview-quality}
 
-string _Default: ""_
+string _Default: 80_
 
-**Required**
+**Optional**
 
-Specifies the quality of the generated preview, has no default and must be specified if defining custom generatePreview options.
+Specifies the quality of the generated preview.
 
-Must be one of the following:
-
-- `low`
-- `medium`
-- `high`
+Must be a number between 0-100.
 
 ```json
 {
-  "quality": "medium"
+  "quality": 80
 }
 ```
 
