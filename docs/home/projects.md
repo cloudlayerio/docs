@@ -12,7 +12,7 @@ title: Projects
   />
 </head>
 
-Projects can be used to organize your jobs and assets. You can also share your your projects with other cloudlayer.io users to callaborate and share your jobs and assets with others.
+Projects can be used to organize your jobs and assets. You can also share your projects with other cloudlayer.io users to callaborate and share your jobs and assets with others.
 
 ## Using a Project
 In order to use an existing project you will use the `projectId` parameter in the job request. Any jobs created using this parameter will be marked as part of this project and will be filterable via the Project filter.
